@@ -209,6 +209,7 @@
     "titleSuffix":    ".",
     "desc": "Un equipo multidisciplinario de Sergipe, con especialistas en cada frente para entregar productos digitales completos.",
     "stat": "7+ especialistas · Sergipe, Brasil",
+    "cta": "Iniciar un proyecto",
     "roles": [
       { "icon": "💻", "area": "Frontend",  "title": "Dev Frontend",    "desc": "Interfaces modernas, responsivas y de alto rendimiento",    "iconStyle": "background: linear-gradient(135deg, #6366F1, #00E5FF)" },
       { "icon": "⚙️", "area": "Backend",   "title": "Dev Backend",     "desc": "APIs robustas, lógica de negocio e integraciones",         "iconStyle": "background: linear-gradient(135deg, #7C3AED, #A855F7)" },
