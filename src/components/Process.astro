@@ -1,0 +1,306 @@
+---
+import type { T } from '../i18n/translations';
+
+interface Props {
+  t: T['process'];
+}
+
+const { t } = Astro.props;
+
+// Zigzag 3-3-3 layout
+const nx = [120, 400, 680, 680, 400, 120, 120, 400, 680];
+const ny = [80,  80,  80,  210, 210, 210, 340, 340, 340];
+const R  = 34;
+const W  = 800;
+const H  = 430;
+
+const nodeColors = [
+  '#7C3AED','#6C4FEF','#5D64F1','#4D7AF4',
+  '#3E8FF6','#2EA4F8','#1FB9FA','#0FCFFC','#00E5FF',
+];
+
+// Connection paths between nodes
+const conns = [
+  `M ${nx[0]+R} ${ny[0]} L ${nx[1]-R} ${ny[1]}`,
+  `M ${nx[1]+R} ${ny[1]} L ${nx[2]-R} ${ny[2]}`,
+  `M ${nx[2]} ${ny[2]+R} L ${nx[3]} ${ny[3]-R}`,
+  `M ${nx[3]-R} ${ny[3]} L ${nx[4]+R} ${ny[4]}`,
+  `M ${nx[4]-R} ${ny[4]} L ${nx[5]+R} ${ny[5]}`,
+  `M ${nx[5]} ${ny[5]+R} L ${nx[6]} ${ny[6]-R}`,
+  `M ${nx[6]+R} ${ny[6]} L ${nx[7]-R} ${ny[7]}`,
+  `M ${nx[7]+R} ${ny[7]} L ${nx[8]-R} ${ny[8]}`,
+];
+
+const jsonSteps = JSON.stringify(
+  t.steps.map((s, i) => ({
+    num: s.num, icon: s.icon, title: s.title,
+    role: s.role, detail: s.detail, color: nodeColors[i],
+  }))
+);
+---
+
+<section id="processo" class="relative z-10 py-25 px-[5%]"
+  style="border-top: 1px solid rgba(255,255,255,0.08);">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="mb-13 reveal">
+      <div class="inline-flex items-center gap-2.5 font-display text-[9px] font-semibold tracking-[4px] uppercase text-cyan mb-5">
+        <div class="w-6 h-px bg-cyan"></div>
+        {t.eyebrow}
+      </div>
+      <h2 class="font-display font-extrabold leading-[1.15] tracking-[-0.5px] text-cosmos m-0"
+        style="font-size: var(--text-section);">
+        {t.title} <span
+          style="background: linear-gradient(135deg, #00E5FF, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+        >{t.titleHighlight}</span>{t.titleSuffix}
+      </h2>
+    </div>
+
+    <div class="reveal relative overflow-hidden rounded-[20px] p-6 max-sm:p-4"
+      style="background: linear-gradient(135deg, rgba(124,58,237,0.11) 0%, rgba(0,229,255,0.05) 100%); border: 1px solid rgba(124,58,237,0.2);">
+
+      <div class="absolute inset-0 pointer-events-none"
+        style="background: radial-gradient(ellipse at top left, rgba(124,58,237,0.14) 0%, transparent 60%);"></div>
+
+      <div class="relative z-1">
+
+        <!-- Header row -->
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-display text-[9px] font-semibold tracking-[2.5px] uppercase"
+            style="color: rgba(255,255,255,0.35);">{t.eyebrow}</span>
+          <span class="inline-flex items-center gap-1.5 font-display text-[8px] font-semibold tracking-[1.5px] uppercase px-2.5 py-1 rounded-full"
+            style="background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.3); color: #A855F7;">
+            <span class="w-1.5 h-1.5 rounded-full inline-block" style="background:#A855F7;"></span>
+            9 etapas
+          </span>
+        </div>
+
+        <!-- SVG Diagram -->
+        <div class="select-none" style="cursor: default;">
+          <svg
+            id="process-svg"
+            viewBox={`0 0 ${W} ${H}`}
+            class="w-full"
+            style="overflow: visible;"
+            data-steps={jsonSteps}
+          >
+            <defs>
+              <linearGradient id="pr-line-g" x1="120" y1="80" x2="680" y2="340" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"   stop-color="#7C3AED" stop-opacity="0.7"/>
+                <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.7"/>
+              </linearGradient>
+
+              <marker id="pr-arrow" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+                <polygon points="0 0, 7 2.5, 0 5" fill="rgba(255,255,255,0.3)"/>
+              </marker>
+
+              <filter id="pr-glow-f" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Grid lines (subtle) -->
+            {[130, 210, 290].map(gx => (
+              <line x1={gx} y1="20" x2={gx} y2={H - 20}
+                stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+            ))}
+
+            <!-- Connection paths -->
+            {conns.map(d => (
+              <path d={d}
+                fill="none"
+                stroke="url(#pr-line-g)"
+                stroke-width="1.5"
+                stroke-dasharray="5 4"
+                marker-end="url(#pr-arrow)"
+              />
+            ))}
+
+            <!-- Nodes -->
+            {t.steps.map((step, i) => (
+              <g class="pr-node" data-idx={String(i)} style="cursor: pointer;">
+                <!-- Outer glow ring (toggled by JS) -->
+                <circle
+                  cx={nx[i]} cy={ny[i]}
+                  r={R + 12}
+                  fill="none"
+                  stroke={nodeColors[i]}
+                  stroke-width="1"
+                  stroke-opacity="0"
+                  id={`pr-ring-${i}`}
+                />
+                <!-- Node body -->
+                <circle
+                  cx={nx[i]} cy={ny[i]}
+                  r={R}
+                  fill={`${nodeColors[i]}20`}
+                  stroke={nodeColors[i]}
+                  stroke-width="1.5"
+                  id={`pr-circle-${i}`}
+                />
+                <!-- Number -->
+                <text
+                  x={nx[i]} y={ny[i] + 5}
+                  text-anchor="middle"
+                  fill="white"
+                  font-size="13"
+                  font-weight="700"
+                  font-family="DM Sans, sans-serif"
+                >{step.num}</text>
+                <!-- Label below -->
+                <text
+                  x={nx[i]} y={ny[i] + R + 17}
+                  text-anchor="middle"
+                  fill="rgba(255,255,255,0.7)"
+                  font-size="11"
+                  font-family="DM Sans, sans-serif"
+                >{step.title}</text>
+              </g>
+            ))}
+          </svg>
+        </div>
+
+        <!-- Info panel -->
+        <div id="process-info"
+          class="mt-5 rounded-[14px] transition-all duration-300 overflow-hidden"
+          style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); min-height: 88px;">
+
+          <div id="pr-hint" class="flex items-center justify-center py-7">
+            <span class="font-display text-[10px] font-semibold tracking-[2px] uppercase"
+              style="color: rgba(255,255,255,0.22);">{t.hint} →</span>
+          </div>
+
+          <div id="pr-detail" class="hidden p-5 flex items-start gap-5">
+            <span id="pr-icon" class="text-[2rem] shrink-0 mt-0.5"></span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2.5 mb-2">
+                <span id="pr-num"
+                  class="font-display text-[10px] font-bold tracking-[2px]"></span>
+                <span id="pr-role"
+                  class="font-display text-[8.5px] font-semibold tracking-[1.5px] uppercase px-2 py-0.5 rounded"
+                  style="background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.38);"></span>
+              </div>
+              <h3 id="pr-title"
+                class="font-display font-bold text-[17px] mb-2 leading-none"></h3>
+              <p id="pr-desc"
+                class="text-[13.5px] text-muted-text leading-[1.72]"></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="flex justify-center mt-10 reveal">
+      <a href="#contato" class="proc-btn">
+        <span>{t.cta} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const svg = document.getElementById('process-svg') as SVGSVGElement | null;
+    if (!svg) return;
+
+    type Step = { num: string; icon: string; title: string; role: string; detail: string; color: string };
+    const steps: Step[] = JSON.parse(svg.dataset.steps ?? '[]');
+
+    const hint   = document.getElementById('pr-hint');
+    const detail = document.getElementById('pr-detail');
+    const prIcon  = document.getElementById('pr-icon');
+    const prNum   = document.getElementById('pr-num');
+    const prRole  = document.getElementById('pr-role');
+    const prTitle = document.getElementById('pr-title');
+    const prDesc  = document.getElementById('pr-desc');
+
+    let activeIdx = -1;
+
+    function showStep(idx: number) {
+      const step = steps[idx];
+      if (!step) return;
+      activeIdx = idx;
+
+      const ring   = document.getElementById(`pr-ring-${idx}`);
+      const circle = document.getElementById(`pr-circle-${idx}`);
+      if (ring)   { ring.setAttribute('stroke-opacity', '0.55'); ring.setAttribute('filter', 'url(#pr-glow-f)'); }
+      if (circle) { circle.setAttribute('stroke-width', '2.5'); circle.setAttribute('filter', 'url(#pr-glow-f)'); circle.setAttribute('fill', `${step.color}40`); }
+
+      if (hint)   hint.classList.add('hidden');
+      if (detail) detail.classList.remove('hidden');
+
+      if (prIcon)  prIcon.textContent  = step.icon;
+      if (prNum)   { prNum.textContent = step.num; (prNum as HTMLElement).style.color = step.color; }
+      if (prRole)  prRole.textContent  = step.role;
+      if (prTitle) { prTitle.textContent = step.title; (prTitle as HTMLElement).style.color = step.color; }
+      if (prDesc)  prDesc.textContent  = step.detail;
+    }
+
+    function clearStep(idx: number) {
+      const ring   = document.getElementById(`pr-ring-${idx}`);
+      const circle = document.getElementById(`pr-circle-${idx}`);
+      const step   = steps[idx];
+      if (ring)   { ring.setAttribute('stroke-opacity', '0'); ring.removeAttribute('filter'); }
+      if (circle) { circle.setAttribute('stroke-width', '1.5'); circle.removeAttribute('filter'); if (step) circle.setAttribute('fill', `${step.color}20`); }
+    }
+
+    document.querySelectorAll<SVGGElement>('.pr-node').forEach(node => {
+      const idx = parseInt(node.dataset.idx ?? '0');
+
+      node.addEventListener('mouseenter', () => showStep(idx));
+      node.addEventListener('mouseleave', () => clearStep(idx));
+
+      // Touch support
+      node.addEventListener('click', () => {
+        if (activeIdx === idx) {
+          clearStep(idx);
+          activeIdx = -1;
+          if (hint)   hint.classList.remove('hidden');
+          if (detail) detail.classList.add('hidden');
+        } else {
+          if (activeIdx >= 0) clearStep(activeIdx);
+          showStep(idx);
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .proc-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    padding: 14px 48px;
+    background: linear-gradient(135deg, #7C3AED 0%, #00B8D4 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .proc-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #00B8D4 0%, #7C3AED 100%);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .proc-btn:hover::after { opacity: 1; }
+  .proc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.5); }
+  .proc-btn span { position: relative; z-index: 1; display: flex; align-items: center; gap: 8px; }
+</style>

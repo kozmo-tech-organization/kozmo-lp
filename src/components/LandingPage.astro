@@ -6,8 +6,10 @@ import Hero from './Hero.astro';
 import Marquee from './Marquee.astro';
 import About from './About.astro';
 import Services from './Services.astro';
+import Process from './Process.astro';
 import Product from './Product.astro';
 import Team from './Team.astro';
+import Testimonials from './Testimonials.astro';
 import Location from './Location.astro';
 import Contact from './Contact.astro';
 import Footer from './Footer.astro';
@@ -35,9 +37,11 @@ const waLink = t.contact.links.find(l => l.label.toLowerCase().includes('whatsap
   <Marquee  t={t.marquee} />
   <About    t={t.about} />
   <Services t={t.services} />
+  <Process  t={t.process} />
   <Product  t={t.product} />
-  <Team     t={t.team} />
-  <Location t={t.location} />
+  <Team         t={t.team} />
+  <Testimonials t={t.testimonials} />
+  <Location     t={t.location} />
   <Contact  t={t.contact} />
   <Footer   t={t.footer} />
 

@@ -3,9 +3,11 @@
   "nav": {
     "about":    "Sobre",
     "services": "Servicios",
+    "process":  "Proceso",
     "product":  "Producto",
-    "team":     "Equipo",
-    "contact":  "Contacto",
+    "team":         "Equipo",
+    "testimonials": "Testimonios",
+    "contact":      "Contacto",
     "cta":      "Contáctanos"
   },
   "hero": {
@@ -68,18 +70,80 @@
       "footer": "Crecimiento medio de clientes Kozmo · 2020–2024"
     }
   },
+  "process": {
+    "eyebrow": "Cómo Trabajamos",
+    "title": "De la idea al",
+    "titleHighlight": "lanzamiento",
+    "titleSuffix": ".",
+    "hint": "Pasa el mouse sobre cada etapa para entender el proceso",
+    "cta": "Iniciar un proyecto",
+    "nav": "Proceso",
+    "steps": [
+      { "num": "01", "icon": "💡", "title": "Tu Idea",      "role": "Inicio",               "detail": "Todo empieza contigo. Cuéntanos lo que necesitas — un sistema, una app o una automatización. No tiene que estar 100% definido; estamos aquí para ayudarte a organizar." },
+      { "num": "02", "icon": "🎯", "title": "Objetivo",     "role": "Gerente de Producto",  "detail": "Nuestro equipo se sumerge en tu negocio para entender exactamente qué debe lograrse. Mapeamos metas, plazos y prioridades juntos, sin jerga técnica." },
+      { "num": "03", "icon": "🔍", "title": "Requisitos",   "role": "Análisis de Negocio",  "detail": "Levantamos cada funcionalidad que el producto necesita. Participas activamente y apruebas la lista completa antes de avanzar." },
+      { "num": "04", "icon": "✅", "title": "Aprobación",   "role": "Análisis de Sistemas", "detail": "Presentamos un documento claro con todo lo que se construirá. Tu aprobación es la luz verde — nada avanza sin tu ok." },
+      { "num": "05", "icon": "🎨", "title": "Prototipo",    "role": "Diseñador UX/UI",      "detail": "Creamos prototipos visuales del producto — pantallas reales que puedes navegar. Ajusta libremente antes de que se escriba una línea de código." },
+      { "num": "06", "icon": "🏗️", "title": "Estructura",  "role": "Arquitectura",         "detail": "Nuestro equipo técnico define cómo se construirá el producto internamente para ser rápido, seguro y listo para crecer con tu negocio." },
+      { "num": "07", "icon": "💻", "title": "Dev",          "role": "Desarrolladores",      "detail": "El equipo de desarrollo se pone manos a la obra. Sigues el progreso con entregas semanales y puedes dar retroalimentación en tiempo real." },
+      { "num": "08", "icon": "🧪", "title": "Pruebas",      "role": "QA",                   "detail": "Antes de entregar, probamos todo exhaustivamente. Ningún error crítico llega a ti ni a tus clientes. Calidad garantizada." },
+      { "num": "09", "icon": "🚀", "title": "Lanzamiento",  "role": "Producción",           "detail": "Hacemos el lanzamiento, entrenamos a tu equipo y seguimos a tu lado con soporte y evolución continua. El inicio de una larga asociación." }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimonios",
+    "cta": "Iniciar un proyecto",
+    "title": "Lo que dicen nuestros",
+    "titleHighlight": "clientes",
+    "titleSuffix": ".",
+    "items": [
+      {
+        "quote": "Kozmo transformó nuestra operación interna con un sistema a medida. En 3 meses, redujimos un 40% el tiempo en tareas manuales.",
+        "name": "Maria Regina", "role": "CEO", "company": "Distribuidora Norte", "initials": "MR", "color": "cyan"
+      },
+      {
+        "quote": "App móvil entregada a tiempo y con calidad superior a la esperada. El equipo fue extremadamente profesional desde el briefing hasta la publicación.",
+        "name": "Carlos Ferreira", "role": "Fundador", "company": "FitApp", "initials": "CF", "color": "purple"
+      },
+      {
+        "quote": "Consultoría que finalmente habla el idioma del negocio. Nos ayudaron a estructurar un producto digital desde cero con claridad.",
+        "name": "Ana Lima", "role": "Directora", "company": "Clínica Saúde+", "initials": "AL", "color": "green"
+      },
+      {
+        "quote": "Automatizaron la integración entre nuestro ERP y el e-commerce. Lo que tardaba horas ahora es instantáneo. Resultado inmediato.",
+        "name": "Roberto Alves", "role": "CTO", "company": "LojaSE", "initials": "RA", "color": "amber"
+      },
+      {
+        "quote": "Desarrollo ágil, comunicación clara y código limpio. Kozmo es diferente a todo lo que hemos contratado antes. Lo recomiendo sin dudar.",
+        "name": "Fernanda Costa", "role": "Product Manager", "company": "StartSE", "initials": "FC", "color": "cyan"
+      },
+      {
+        "quote": "Desde que implementamos su sistema, nuestra facturación ha crecido de forma consistente. Una asociación a largo plazo, sin duda.",
+        "name": "José Neto", "role": "Empresario", "company": "Rede Varejo NE", "initials": "JN", "color": "purple"
+      }
+    ]
+  },
   "services": {
     "eyebrow": "Servicios",
     "title":   "Lo que Kozmo",
     "titleHighlight": "entrega",
     "titleSuffix":    ".",
-    "viewAll": "Ver todos →",
+    "viewAll": "Ver todos",
+    "viewLess": "Ver menos",
     "cta": "Iniciar un proyecto",
     "items": [
-      { "num": "01", "icon": "🖥️", "title": "Desarrollo de Software",    "desc": "Sistemas web personalizados desde cero, con foco en rendimiento, escalabilidad y usabilidad real." },
-      { "num": "02", "icon": "📱", "title": "Aplicaciones Móviles",      "desc": "Apps nativas e híbridas para iOS y Android. Del diseño a la publicación en las tiendas." },
-      { "num": "03", "icon": "🔗", "title": "Automatizaciones & Integraciones", "desc": "Conectamos sistemas, eliminamos procesos manuales y hacemos que tu operación trabaje sola." },
-      { "num": "04", "icon": "🧭", "title": "Consultoría en Tecnología", "desc": "¿Tienes una idea de producto pero no sabes por dónde empezar? Te ayudamos a estructurarla." }
+      { "num": "01", "icon": "🖥️", "title": "Desarrollo de Software",         "desc": "Sistemas web personalizados desde cero, con foco en rendimiento, escalabilidad y usabilidad real." },
+      { "num": "02", "icon": "📱", "title": "Aplicaciones Móviles",           "desc": "Apps nativas e híbridas para iOS y Android. Del diseño a la publicación en las tiendas." },
+      { "num": "03", "icon": "🔗", "title": "Automatizaciones & Integraciones","desc": "Conectamos sistemas, eliminamos procesos manuales y hacemos que tu operación trabaje sola." },
+      { "num": "04", "icon": "🧭", "title": "Consultoría en Tecnología",      "desc": "¿Tienes una idea de producto pero no sabes por dónde empezar? Te ayudamos a estructurarla." },
+      { "num": "05", "icon": "🎨", "title": "UI/UX Design",                   "desc": "Interfaces que enamoran, convierten y fidelizan. Del wireframe al design system completo." },
+      { "num": "06", "icon": "🛒", "title": "E-commerce",                     "desc": "Tiendas virtuales completas con gestión de pedidos, pagos integrados y experiencia de compra fluida." },
+      { "num": "07", "icon": "☁️", "title": "Cloud & DevOps",                "desc": "Infraestructura en la nube, CI/CD, despliegue automatizado y arquitectura escalable para cualquier volumen." },
+      { "num": "08", "icon": "🤖", "title": "Productos SaaS",                 "desc": "Desarrollamos tu producto SaaS desde cero: arquitectura multi-tenant, onboarding, billing y roadmap." },
+      { "num": "09", "icon": "🔐", "title": "Seguridad Digital",             "desc": "Auditorías de seguridad, protección de datos y cumplimiento de LGPD/GDPR para tu operación." },
+      { "num": "10", "icon": "🧪", "title": "QA & Pruebas",                  "desc": "Pruebas automatizadas, end-to-end y de carga para garantizar que tu producto nunca falle en producción." },
+      { "num": "11", "icon": "📊", "title": "Analytics & BI",                "desc": "Dashboards e informes en tiempo real para decisiones más inteligentes basadas en datos reales." },
+      { "num": "12", "icon": "🌐", "title": "Portales & Intranets",          "desc": "Portales corporativos e intranets para centralizar comunicación, documentos y procesos internos." }
     ]
   },
   "product": {

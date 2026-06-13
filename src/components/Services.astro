@@ -27,12 +27,14 @@ const { t } = Astro.props;
           >{t.titleHighlight}</span>{t.titleSuffix}
         </h2>
       </div>
-      <a href="#contato" class="btn-ghost-sm shrink-0">{t.viewAll}</a>
+      <button id="svc-toggle" class="btn-ghost-sm shrink-0" data-label-more={t.viewAll} data-label-less={t.viewLess}>
+        {t.viewAll}
+      </button>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-      {t.items.map(svc => (
-        <div class="sv group relative overflow-hidden rounded-card p-7 transition-all duration-250 cursor-default"
+      {t.items.map((svc, i) => (
+        <div class={`sv group relative overflow-hidden rounded-card p-7 transition-all duration-250 cursor-default${i >= 4 ? ' svc-extra' : ''}`}
           style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
           <div class="bottom-bar absolute bottom-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
             style="background: linear-gradient(90deg, #00E5FF, #A855F7);"></div>
@@ -105,4 +107,39 @@ const { t } = Astro.props;
   .svc-btn:hover::after { opacity: 1; }
   .svc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.5); }
   .svc-btn span { position: relative; z-index: 1; display: flex; align-items: center; gap: 8px; }
+
+  :global(.svc-extra) {
+    display: none;
+  }
+  :global(.svc-extra.svc-visible) {
+    display: block;
+    animation: svc-fade-in 0.35s ease forwards;
+  }
+  @keyframes svc-fade-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('svc-toggle') as HTMLButtonElement | null;
+    const extras = document.querySelectorAll<HTMLElement>('.svc-extra');
+    let open = false;
+
+    btn?.addEventListener('click', () => {
+      open = !open;
+      extras.forEach((el, idx) => {
+        if (open) {
+          el.style.animationDelay = `${idx * 60}ms`;
+          el.classList.add('svc-visible');
+        } else {
+          el.classList.remove('svc-visible');
+        }
+      });
+      if (btn) btn.textContent = open
+        ? (btn.dataset.labelLess ?? '')
+        : (btn.dataset.labelMore ?? '');
+    });
+  });
+</script>
