@@ -1,0 +1,79 @@
+---
+import type { T } from '../i18n/translations';
+
+interface Props {
+  t: T['team'];
+}
+
+const { t } = Astro.props;
+
+const rowOne = t.members.slice(0, 4);
+const rowTwo = t.members.slice(4);
+---
+
+<section
+  id="equipe"
+  class="relative z-10 py-25 px-[5%]"
+  style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,229,255,0.02);"
+>
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-140 mx-auto mb-15 reveal">
+      <div class="inline-flex items-center justify-center gap-2.5 font-display text-[9px] font-semibold tracking-[4px] uppercase text-cyan mb-5">
+        <div class="w-6 h-px bg-cyan"></div>
+        {t.eyebrow}
+      </div>
+      <h2 class="font-display font-extrabold leading-[1.15] tracking-[-0.5px] text-cosmos mb-4.5"
+        style="font-size: var(--text-section);">
+        {t.title} <span
+          style="background: linear-gradient(135deg, #00E5FF, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+        >{t.titleHighlight}</span>{t.titleSuffix}
+      </h2>
+      <p class="text-base text-muted-text leading-[1.75] font-light">{t.desc}</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-3.5">
+      {rowOne.map(m => (
+        <div class="tc group relative overflow-hidden rounded-[14px] py-7 px-4.5 text-center transition-all duration-250 reveal"
+          style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+          <div class="top-bar absolute top-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            style="background: linear-gradient(90deg, #00E5FF, #A855F7);"></div>
+          <div class="tc-av relative w-15 h-15 rounded-full mx-auto mb-3.5 flex items-center justify-center font-display text-base font-bold text-white"
+            style={m.avatarStyle}>
+          </div>
+          <div class="font-display text-[13px] font-bold text-cosmos mb-1.25 tracking-[1px]">{m.name}</div>
+          <div>
+            <strong class="block text-[9px] font-semibold tracking-[2px] uppercase text-cyan mb-0.75">{m.role}</strong>
+            <span class="text-xs text-muted-text block leading-[1.4]">{m.desc}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 max-w-225 mx-auto">
+      {rowTwo.map(m => (
+        <div class="tc group relative overflow-hidden rounded-[14px] py-7 px-4.5 text-center transition-all duration-250 reveal"
+          style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+          <div class="top-bar absolute top-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            style="background: linear-gradient(90deg, #00E5FF, #A855F7);"></div>
+          <div class="tc-av relative w-15 h-15 rounded-full mx-auto mb-3.5 flex items-center justify-center font-display text-base font-bold text-white"
+            style={m.avatarStyle}>
+          </div>
+          <div class="font-display text-[13px] font-bold text-cosmos mb-1.25 tracking-[1px]">{m.name}</div>
+          <div>
+            <strong class="block text-[9px] font-semibold tracking-[2px] uppercase text-cyan mb-0.75">{m.role}</strong>
+            <span class="text-xs text-muted-text block leading-[1.4]">{m.desc}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tc:hover {
+    border-color: rgba(0,229,255,0.2) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,229,255,0.08);
+    background: rgba(0,229,255,0.04) !important;
+  }
+</style>

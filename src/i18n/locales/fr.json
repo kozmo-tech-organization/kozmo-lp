@@ -1,0 +1,170 @@
+{
+  "lang": "fr",
+  "nav": {
+    "about":    "À propos",
+    "services": "Services",
+    "product":  "Produit",
+    "team":     "Équipe",
+    "contact":  "Contact",
+    "cta":      "Nous contacter"
+  },
+  "hero": {
+    "kicker":    "Software House · Sergipe · Brésil",
+    "titleLine1": "Nous transformons",
+    "titleLine2": "les Idées",
+    "titleLine3": "en produits digitaux",
+    "desc": "Nous développons des logiciels sur mesure pour les petites et moyennes entreprises qui veulent croître avec une vraie technologie. Du MVP au produit scalable, Kozmo est avec vous.",
+    "btn1": "Démarrer un projet",
+    "btn2": "Voir les services",
+    "stats": [
+      { "num": "7+", "label": "Experts dans l'équipe" },
+      { "num": "4+", "label": "Services proposés" },
+      { "num": "SE", "label": "Basés à Sergipe" },
+      { "num": "BR", "label": "Nous servons tout le Brésil" }
+    ]
+  },
+  "marquee": {
+    "items": [
+      "Développement Web",
+      "Applications Mobiles",
+      "Logiciels Sur Mesure",
+      "Automatisations",
+      "Conseil en TI",
+      "Intégrations",
+      "Produits SaaS"
+    ]
+  },
+  "about": {
+    "eyebrow": "Qui nous sommes",
+    "title":    "Des logiciels faits pour",
+    "titleHighlight": "fonctionner",
+    "titleSuffix": ".",
+    "desc1": "Kozmo Tech est née à Sergipe avec un objectif clair : apporter une technologie de qualité aux entreprises locales qui méritent de meilleurs outils.",
+    "desc2": "Nous sommes une équipe jeune, technique et passionnée par la résolution de problèmes réels. Nous ne livrons pas que du code — nous livrons un impact sur le business du client.",
+    "cards": [
+      { "icon": "💻", "name": "Dev sur mesure",  "desc": "Systèmes web complets pour votre activité" },
+      { "icon": "📱", "name": "Apps Mobiles",    "desc": "iOS et Android axés sur l'expérience" },
+      { "icon": "⚡", "name": "Automatisations", "desc": "Processus intelligents et intégrations" },
+      { "icon": "🧭", "name": "Conseil",         "desc": "Stratégie et architecture technologique" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title":   "Ce que Kozmo",
+    "titleHighlight": "livre",
+    "titleSuffix":    ".",
+    "viewAll": "Voir tout →",
+    "items": [
+      { "num": "01", "icon": "🖥️", "title": "Développement Logiciel",      "desc": "Systèmes web personnalisés depuis zéro, axés sur la performance, la scalabilité et l'utilisabilité réelle." },
+      { "num": "02", "icon": "📱", "title": "Applications Mobiles",        "desc": "Apps natives et hybrides pour iOS et Android. Du design à la publication en boutique." },
+      { "num": "03", "icon": "🔗", "title": "Automatisations & Intégrations", "desc": "Nous connectons les systèmes, éliminons les processus manuels et faisons fonctionner votre opération seule." },
+      { "num": "04", "icon": "🧭", "title": "Conseil en Technologie",      "desc": "Vous avez une idée de produit mais ne savez pas par où commencer ? On vous aide à la structurer." }
+    ]
+  },
+  "product": {
+    "tag":   "Produit propre en développement",
+    "title": "Prise de rendez-vous intelligente avec",
+    "titleHighlight": "WhatsApp",
+    "titleSuffix":    "intégré.",
+    "desc":  "Notre premier SaaS : gestion complète des rendez-vous pour barbiers, cliniques et salons, avec confirmation automatique via WhatsApp.",
+    "features": [
+      "Lien de réservation exclusif par entreprise",
+      "Confirmation et rappel automatique via WhatsApp",
+      "Contrôle financier et ordres de service intégrés",
+      "CRM automatique avec réactivation des clients"
+    ],
+    "cta": "Je veux un accès anticipé",
+    "mock": {
+      "statItems": [
+        { "num": "12",    "color": "cyan",        "label": "Aujourd'hui" },
+        { "num": "€540",  "color": "neon-green",  "label": "Caisse" },
+        { "num": "2",     "color": "neon-amber",  "label": "En attente" }
+      ],
+      "scheduleLabel": "Agenda du jour",
+      "scheduleItems": [
+        { "time": "09:00", "name": "Carlos S.",  "status": "ok",   "label": "Confirmé" },
+        { "time": "10:30", "name": "Marcos R.",  "status": "pend", "label": "En attente" },
+        { "time": "11:00", "name": "João P.",    "status": "ok",   "label": "Confirmé" },
+        { "time": "14:00", "name": "Ana Lima",   "status": "canc", "label": "Annulé" }
+      ]
+    }
+  },
+  "team": {
+    "eyebrow": "L'équipe",
+    "title":   "Sept esprits,",
+    "titleHighlight": "un seul but",
+    "titleSuffix":    ".",
+    "desc": "Une équipe multidisciplinaire de Sergipe, unie par la volonté de construire des produits qui font la différence dans l'univers digital.",
+    "members": [
+      { "initials": "DE", "name": "Denisson", "role": "PDG & Leader",            "desc": "Vision stratégique et leadership",   "avatarStyle": "background: linear-gradient(135deg, #7C3AED, #00E5FF)" },
+      { "initials": "WE", "name": "Wendell",  "role": "Tech Lead",               "desc": "Architecture technique et dev",      "avatarStyle": "background: linear-gradient(135deg, #6366F1, #A855F7)" },
+      { "initials": "KE", "name": "Keven",    "role": "Dev & Infra",             "desc": "Architecture et infrastructure",     "avatarStyle": "background: linear-gradient(135deg, #0EA5E9, #00E5FF)" },
+      { "initials": "AL", "name": "Allefe",   "role": "Designer UI/UX",          "desc": "Interfaces et expérience",           "avatarStyle": "background: linear-gradient(135deg, #10B981, #00E5FF)" },
+      { "initials": "IG", "name": "Igor",     "role": "UI/UX & QA",              "desc": "Design et qualité logicielle",       "avatarStyle": "background: linear-gradient(135deg, #F59E0B, #EC4899)" },
+      { "initials": "MA", "name": "Matheus",  "role": "Commercial & Dev Jr",     "desc": "Clients et développement",           "avatarStyle": "background: linear-gradient(135deg, #EC4899, #A855F7)" },
+      { "initials": "SA", "name": "Saulo",    "role": "Contrôle & Marketing",    "desc": "Finance et stratégie de marque",     "avatarStyle": "background: linear-gradient(135deg, #14B8A6, #7C3AED)" }
+    ]
+  },
+  "location": {
+    "badge": "📍 Sergipe, Brésil",
+    "desc":  "Basés à SE — Nous servons des clients dans tout le territoire national."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title":   "Construisons quelque chose",
+    "titleHighlight": "ensemble ?",
+    "desc": "Vous avez un projet en tête ou une idée qui doit prendre vie ? Parlez-nous. La première conversation est à notre charge.",
+    "links": [
+      { "icon": "💬", "label": "WhatsApp",  "value": "+55 (79) 9 9999-9999",         "href": "https://wa.me/5579999999999" },
+      { "icon": "✉️", "label": "E-mail",    "value": "contato@kozmotech.com.br",     "href": "mailto:contato@kozmotech.com.br" },
+      { "icon": "💼", "label": "LinkedIn",  "value": "linkedin.com/company/kozmotech", "href": "#" }
+    ],
+    "form": {
+      "title":            "Parlez-nous de votre projet",
+      "name":             "Nom",
+      "namePlaceholder":  "Votre nom",
+      "company":          "Entreprise",
+      "companyPlaceholder": "Nom de l'entreprise",
+      "whatsapp":         "WhatsApp",
+      "whatsappPlaceholder": "+55 (79) 9 9999-9999",
+      "projectType":      "Type de projet",
+      "projectTypePlaceholder": "Sélectionnez...",
+      "projectTypes": [
+        "Système web sur mesure",
+        "Application mobile",
+        "Automatisation et intégration",
+        "Conseil en technologie",
+        "Produit SaaS (j'ai une idée)",
+        "Autre"
+      ],
+      "message":          "Sur le projet",
+      "messagePlaceholder": "De quoi avez-vous besoin ? Plus de détails, mieux c'est...",
+      "submit":           "Envoyer le message"
+    }
+  },
+  "footer": {
+    "copy": "© 2026 Kozmo Tech · Sergipe, Brésil",
+    "links": [
+      { "label": "À propos",  "href": "#sobre" },
+      { "label": "Services",  "href": "#servicos" },
+      { "label": "Équipe",    "href": "#equipe" },
+      { "label": "Contact",   "href": "#contato" }
+    ]
+  },
+  "seo": {
+    "title":       "Kozmo Tech — Software House | Sergipe, Brésil",
+    "description": "Nous développons des logiciels sur mesure pour les PME. Systèmes web, apps mobiles, automatisations et conseil TI. Basés à Sergipe, nous servons tout le Brésil.",
+    "ogLocale":    "fr_FR"
+  },
+  "accessibility": {
+    "open":          "Accessibilité",
+    "close":         "Fermer",
+    "title":         "Accessibilité",
+    "highContrast":  "Contraste élevé",
+    "fontSize":      "Taille de police",
+    "fontSmall":     "Petite",
+    "fontNormal":    "Normale",
+    "fontLarge":     "Grande",
+    "reset":         "Tout réinitialiser"
+  }
+}

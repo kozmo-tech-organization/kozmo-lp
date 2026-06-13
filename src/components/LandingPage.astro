@@ -1,0 +1,73 @@
+---
+import { getT } from '../i18n/translations';
+import Layout from '../layouts/Layout.astro';
+import Navbar from './Navbar.astro';
+import Hero from './Hero.astro';
+import Marquee from './Marquee.astro';
+import About from './About.astro';
+import Services from './Services.astro';
+import Product from './Product.astro';
+import Team from './Team.astro';
+import Location from './Location.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import AccessibilityWidget from './AccessibilityWidget.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = getT(lang);
+
+const waLink = t.contact.links.find(l => l.label.toLowerCase().includes('whatsapp') || l.label.toLowerCase().includes('whats'));
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  lang={lang}
+  ogLocale={t.seo.ogLocale}
+>
+  <Navbar   t={t.nav}      lang={lang} />
+  <Hero     t={t.hero} />
+  <Marquee  t={t.marquee} />
+  <About    t={t.about} />
+  <Services t={t.services} />
+  <Product  t={t.product} />
+  <Team     t={t.team} />
+  <Location t={t.location} />
+  <Contact  t={t.contact} />
+  <Footer   t={t.footer} />
+
+  <AccessibilityWidget t={t.accessibility} />
+  {waLink && <WhatsAppButton href={waLink.href} label={waLink.label} />}
+</Layout>
+
+<script>
+  const obs = new IntersectionObserver(
+    entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          (e.target as HTMLElement).classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  const staggerSelectors = [
+    '.team-grid .tc',
+    '.team-grid-2 .tc',
+    '.serv-grid .sv',
+    '.sobre-cards .sb-card',
+  ];
+  staggerSelectors.forEach(sel => {
+    document.querySelectorAll<HTMLElement>(sel).forEach((el, i) => {
+      el.style.transitionDelay = `${i * 70}ms`;
+    });
+  });
+</script>

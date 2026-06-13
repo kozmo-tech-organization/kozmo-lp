@@ -1,0 +1,278 @@
+---
+import type { T } from '../i18n/translations';
+
+interface Props {
+  t: T['nav'];
+  lang: string;
+}
+
+const { t, lang } = Astro.props;
+
+const base = lang === 'pt' ? '/' : `/${lang}`;
+
+const allLangs = [
+  { code: 'pt', flag: '🇧🇷', label: 'PT', href: '/'    },
+  { code: 'en', flag: '🇺🇸', label: 'EN', href: '/en'  },
+  { code: 'es', flag: '🇪🇸', label: 'ES', href: '/es'  },
+  { code: 'fr', flag: '🇫🇷', label: 'FR', href: '/fr'  },
+];
+
+const currentLang = allLangs.find(l => l.code === lang) ?? allLangs[0]!;
+const otherLangs  = allLangs.filter(l => l.code !== lang);
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-500 h-17.5 px-[5%] flex items-center justify-between"
+  style="background: rgba(3,2,10,0.8); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.08);"
+>
+  <a href={base} class="flex items-center gap-3 no-underline" aria-label="Kozmo Tech">
+    <div class="logo-planet relative w-9.5 h-9.5 shrink-0">
+      <div
+        class="planet-core absolute top-0.75 left-0.75 w-8 h-8 rounded-full flex items-center justify-center font-display text-sm font-black text-white"
+        style="background: linear-gradient(135deg, #7C3AED, #00B8D4); box-shadow: 0 0 20px rgba(124,58,237,0.6), 0 0 40px rgba(0,229,255,0.2);"
+      >K</div>
+      <div class="planet-ring absolute w-full h-3 top-3.25 left-0 rounded-full"
+        style="border: 2px solid rgba(0,229,255,0.5); border-radius: 50%; transform: rotateX(70deg); animation: ringRotate 8s linear infinite;">
+      </div>
+    </div>
+    <span class="font-display text-[15px] font-bold text-cosmos tracking-[2px]">
+      KOZMO<span class="text-cyan">TECH</span>
+    </span>
+  </a>
+
+  <ul class="hidden md:flex items-center gap-8 list-none">
+    <li><a href="#sobre"    class="nav-link text-[13px] font-medium text-muted-text hover:text-cyan transition-colors no-underline">{t.about}</a></li>
+    <li><a href="#servicos" class="nav-link text-[13px] font-medium text-muted-text hover:text-cyan transition-colors no-underline">{t.services}</a></li>
+    <li><a href="#produto"  class="nav-link text-[13px] font-medium text-muted-text hover:text-cyan transition-colors no-underline">{t.product}</a></li>
+    <li><a href="#equipe"   class="nav-link text-[13px] font-medium text-muted-text hover:text-cyan transition-colors no-underline">{t.team}</a></li>
+    <li><a href="#contato"  class="nav-link text-[13px] font-medium text-muted-text hover:text-cyan transition-colors no-underline">{t.contact}</a></li>
+  </ul>
+
+  <div class="hidden md:flex items-center gap-3">
+    <div class="lang-switcher relative" id="langSwitcher">
+      <button
+        id="langBtn"
+        class="lang-btn flex items-center gap-1.5 px-3 py-1.75 rounded text-xs font-semibold text-muted-text transition-all duration-200"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-label="Selecionar idioma"
+      >
+        <span class="text-[15px] leading-none">{currentLang.flag}</span>
+        <span class="font-display tracking-[1px]">{currentLang.label}</span>
+        <svg class="lang-chevron w-3 h-3 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+
+      <div
+        id="langDropdown"
+        class="lang-dropdown absolute top-[calc(100%+8px)] right-0 rounded-[10px] overflow-hidden min-w-30 hidden"
+        style="background: rgba(6,5,15,0.98); border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(20px); box-shadow: 0 12px 40px rgba(0,0,0,0.6);"
+        role="menu"
+      >
+        {otherLangs.map(l => (
+          <a
+            href={l.href}
+            class="lang-option flex items-center gap-2.5 px-4 py-2.5 text-xs font-semibold text-muted-text no-underline transition-all duration-150"
+            role="menuitem"
+            hreflang={l.code}
+          >
+            <span class="text-base leading-none">{l.flag}</span>
+            <span class="font-display tracking-[1px]">{l.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <a href="#contato" class="btn-nav">{t.cta}</a>
+  </div>
+
+  <button
+    class="hamburger md:hidden flex flex-col gap-1.25 bg-transparent border-none cursor-pointer p-1.5"
+    id="hamburger"
+    aria-label="Menu"
+    aria-expanded="false"
+  >
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div
+  class="mobile-menu fixed top-17.5 left-0 right-0 bottom-0 z-400 flex-col items-center justify-center gap-0 opacity-0 pointer-events-none transition-opacity duration-300"
+  id="mobileMenu"
+  style="display: flex; background: rgba(3,2,10,0.97); backdrop-filter: blur(24px);"
+>
+  <a href="#sobre"    class="mob-link">{t.about}</a>
+  <a href="#servicos" class="mob-link">{t.services}</a>
+  <a href="#produto"  class="mob-link">{t.product}</a>
+  <a href="#equipe"   class="mob-link">{t.team}</a>
+  <a href="#contato"  class="mob-link">{t.contact}</a>
+  <a href="#contato"  class="mob-link mob-cta">{t.cta}</a>
+
+  <div class="mob-langs flex items-center gap-2 mt-8">
+    {allLangs.map(l => (
+      <a
+        href={l.href}
+        class={`mob-lang-btn flex items-center gap-1.5 px-3 py-2 rounded text-[11px] font-display font-semibold tracking-[1px] no-underline transition-all duration-200 ${l.code === lang ? 'mob-lang-active' : ''}`}
+        hreflang={l.code}
+        aria-current={l.code === lang ? 'page' : undefined}
+      >
+        <span class="text-sm leading-none">{l.flag}</span>
+        {l.label}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  const ham   = document.getElementById('hamburger')!;
+  const mmenu = document.getElementById('mobileMenu')!;
+
+  ham.addEventListener('click', () => {
+    const isOpen = mmenu.classList.toggle('open');
+    ham.classList.toggle('open');
+    ham.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  document.querySelectorAll('.mob-link').forEach(a => {
+    a.addEventListener('click', () => {
+      mmenu.classList.remove('open');
+      ham.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  const langBtn      = document.getElementById('langBtn')!;
+  const langDropdown = document.getElementById('langDropdown')!;
+
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = langDropdown.classList.toggle('hidden') === false;
+    langBtn.setAttribute('aria-expanded', String(isOpen));
+    langBtn.querySelector('.lang-chevron')?.classList.toggle('rotate-180', isOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!langBtn.contains(e.target as Node) && !langDropdown.contains(e.target as Node)) {
+      langDropdown.classList.add('hidden');
+      langBtn.setAttribute('aria-expanded', 'false');
+      langBtn.querySelector('.lang-chevron')?.classList.remove('rotate-180');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      langDropdown.classList.add('hidden');
+      langBtn.setAttribute('aria-expanded', 'false');
+      langBtn.querySelector('.lang-chevron')?.classList.remove('rotate-180');
+    }
+  });
+</script>
+
+<style>
+  @keyframes ringRotate {
+    from { transform: rotateX(70deg) rotateZ(0deg); }
+    to   { transform: rotateX(70deg) rotateZ(360deg); }
+  }
+
+  .btn-nav {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 22px;
+    background: transparent;
+    color: #00E5FF;
+    border: 1px solid #00E5FF;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-nav::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #00E5FF;
+    transform: translateX(-100%);
+    transition: transform 0.25s;
+    z-index: -1;
+  }
+  .btn-nav:hover { color: #03020A; }
+  .btn-nav:hover::before { transform: translateX(0); }
+
+  .lang-btn {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer;
+  }
+  .lang-btn:hover {
+    border-color: rgba(0,229,255,0.3);
+    color: #00E5FF;
+    background: rgba(0,229,255,0.06);
+  }
+
+  .lang-option:hover {
+    background: rgba(0,229,255,0.08);
+    color: #00E5FF;
+  }
+  .lang-option + .lang-option {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .mob-link {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(20px, 5vw, 32px);
+    font-weight: 700;
+    color: #7A7D9C;
+    text-decoration: none;
+    padding: 18px 0;
+    width: 80%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    letter-spacing: 2px;
+    transition: color 0.2s;
+  }
+  .mob-link:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+  .mob-link:hover { color: #00E5FF; }
+  .mob-cta {
+    margin-top: 32px;
+    border: 1px solid #00E5FF !important;
+    color: #00E5FF !important;
+    border-radius: 4px;
+    padding: 14px 40px;
+    width: auto;
+  }
+
+  .mob-lang-btn {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #7A7D9C;
+  }
+  .mob-lang-btn:hover, .mob-lang-active {
+    background: rgba(0,229,255,0.08);
+    border-color: rgba(0,229,255,0.3);
+    color: #00E5FF;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: #E8EAFF;
+    border-radius: 2px;
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+</style>

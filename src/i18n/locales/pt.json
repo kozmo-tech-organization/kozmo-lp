@@ -1,0 +1,170 @@
+{
+  "lang": "pt",
+  "nav": {
+    "about":    "Sobre",
+    "services": "Serviços",
+    "product":  "Produto",
+    "team":     "Equipe",
+    "contact":  "Contato",
+    "cta":      "Fale Conosco"
+  },
+  "hero": {
+    "kicker":    "Software House · Sergipe · Brasil",
+    "titleLine1": "Transformamos",
+    "titleLine2": "Ideias",
+    "titleLine3": "em produto digital",
+    "desc": "Desenvolvemos software sob medida para pequenas e médias empresas que querem crescer com tecnologia de verdade. Do MVP ao produto escalável, a Kozmo está com você.",
+    "btn1": "Iniciar um projeto",
+    "btn2": "Ver serviços",
+    "stats": [
+      { "num": "7+", "label": "Especialistas no time" },
+      { "num": "4+", "label": "Serviços oferecidos" },
+      { "num": "SE", "label": "Base em Sergipe" },
+      { "num": "BR", "label": "Atendemos todo o país" }
+    ]
+  },
+  "marquee": {
+    "items": [
+      "Desenvolvimento Web",
+      "Aplicativos Mobile",
+      "Software sob Medida",
+      "Automações",
+      "Consultoria em TI",
+      "Integrações",
+      "Produtos SaaS"
+    ]
+  },
+  "about": {
+    "eyebrow": "Quem somos",
+    "title":    "Software feito para",
+    "titleHighlight": "funcionar",
+    "titleSuffix": ".",
+    "desc1": "A Kozmo Tech nasceu em Sergipe com um propósito claro: trazer tecnologia de qualidade para empresas locais que merecem ferramentas melhores.",
+    "desc2": "Somos um time jovem, técnico e apaixonado por resolver problemas reais. Não entregamos só código — entregamos impacto no negócio do cliente.",
+    "cards": [
+      { "icon": "💻", "name": "Dev sob medida",  "desc": "Sistemas web completos para sua operação" },
+      { "icon": "📱", "name": "Apps Mobile",      "desc": "iOS e Android com foco em experiência" },
+      { "icon": "⚡", "name": "Automações",       "desc": "Processos inteligentes e integrações" },
+      { "icon": "🧭", "name": "Consultoria",      "desc": "Estratégia e arquitetura de tecnologia" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Serviços",
+    "title":   "O que a Kozmo",
+    "titleHighlight": "entrega",
+    "titleSuffix":    ".",
+    "viewAll": "Ver todos →",
+    "items": [
+      { "num": "01", "icon": "🖥️", "title": "Desenvolvimento de Software",  "desc": "Sistemas web personalizados do zero, com foco em performance, escalabilidade e usabilidade real." },
+      { "num": "02", "icon": "📱", "title": "Aplicativos Mobile",            "desc": "Apps nativos e híbridos para iOS e Android. Do design à publicação nas lojas, com experiência que encanta." },
+      { "num": "03", "icon": "🔗", "title": "Automações & Integrações",      "desc": "Conectamos sistemas, eliminamos processos manuais e fazemos sua operação trabalhar sozinha." },
+      { "num": "04", "icon": "🧭", "title": "Consultoria em Tecnologia",     "desc": "Tem uma ideia de produto mas não sabe por onde começar? A gente te ajuda a estruturar e tirar do papel." }
+    ]
+  },
+  "product": {
+    "tag":   "Produto próprio em desenvolvimento",
+    "title": "Agendamento inteligente com",
+    "titleHighlight": "WhatsApp",
+    "titleSuffix":    "integrado.",
+    "desc":  "Nosso primeiro SaaS próprio: gestão completa de agendamentos para barbearias, clínicas e salões, com confirmação automática via WhatsApp.",
+    "features": [
+      "Link de agendamento exclusivo por empresa",
+      "Confirmação e lembrete automático via WhatsApp",
+      "Controle financeiro e OS integrados",
+      "CRM automático com reativação de clientes"
+    ],
+    "cta": "Quero acesso antecipado",
+    "mock": {
+      "statItems": [
+        { "num": "12",    "color": "cyan",        "label": "Hoje" },
+        { "num": "R$540", "color": "neon-green",  "label": "Caixa" },
+        { "num": "2",     "color": "neon-amber",  "label": "Pendentes" }
+      ],
+      "scheduleLabel": "Agenda de hoje",
+      "scheduleItems": [
+        { "time": "09:00", "name": "Carlos S.",  "status": "ok",   "label": "Confirmado" },
+        { "time": "10:30", "name": "Marcos R.",  "status": "pend", "label": "Pendente" },
+        { "time": "11:00", "name": "João P.",    "status": "ok",   "label": "Confirmado" },
+        { "time": "14:00", "name": "Ana Lima",   "status": "canc", "label": "Cancelado" }
+      ]
+    }
+  },
+  "team": {
+    "eyebrow": "O time",
+    "title":   "Sete mentes,",
+    "titleHighlight": "um propósito",
+    "titleSuffix":    ".",
+    "desc": "Um time multidisciplinar de Sergipe, unido pela vontade de construir produtos que fazem diferença no universo digital.",
+    "members": [
+      { "initials": "DE", "name": "Denisson", "role": "CEO & Líder",          "desc": "Visão estratégica e liderança",   "avatarStyle": "background: linear-gradient(135deg, #7C3AED, #00E5FF)" },
+      { "initials": "WE", "name": "Wendell",  "role": "Tech Lead",            "desc": "Arquitetura técnica e dev",       "avatarStyle": "background: linear-gradient(135deg, #6366F1, #A855F7)" },
+      { "initials": "KE", "name": "Keven",    "role": "Dev & Infra",          "desc": "Arquitetura e infraestrutura",    "avatarStyle": "background: linear-gradient(135deg, #0EA5E9, #00E5FF)" },
+      { "initials": "AL", "name": "Allefe",   "role": "UI/UX Designer",       "desc": "Interfaces e experiência",       "avatarStyle": "background: linear-gradient(135deg, #10B981, #00E5FF)" },
+      { "initials": "IG", "name": "Igor",     "role": "UI/UX & QA",           "desc": "Design e qualidade de software", "avatarStyle": "background: linear-gradient(135deg, #F59E0B, #EC4899)" },
+      { "initials": "MA", "name": "Matheus",  "role": "Comercial & Dev Jr",   "desc": "Clientes e desenvolvimento",     "avatarStyle": "background: linear-gradient(135deg, #EC4899, #A855F7)" },
+      { "initials": "SA", "name": "Saulo",    "role": "Controladoria & Mkt",  "desc": "Finanças e estratégia de marca", "avatarStyle": "background: linear-gradient(135deg, #14B8A6, #7C3AED)" }
+    ]
+  },
+  "location": {
+    "badge": "📍 Sergipe, Brasil",
+    "desc":  "Baseados em SE — Atendemos clientes em todo o território nacional."
+  },
+  "contact": {
+    "eyebrow": "Contato",
+    "title":   "Vamos construir algo",
+    "titleHighlight": "juntos?",
+    "desc": "Tem um projeto em mente ou uma ideia que precisa sair do papel? Fale com a gente. A primeira conversa é por nossa conta.",
+    "links": [
+      { "icon": "💬", "label": "WhatsApp",  "value": "(79) 9 9999-9999",           "href": "https://wa.me/5579999999999" },
+      { "icon": "✉️", "label": "E-mail",    "value": "contato@kozmotech.com.br",   "href": "mailto:contato@kozmotech.com.br" },
+      { "icon": "💼", "label": "LinkedIn",  "value": "linkedin.com/company/kozmotech", "href": "#" }
+    ],
+    "form": {
+      "title":            "Nos conte sobre seu projeto",
+      "name":             "Nome",
+      "namePlaceholder":  "Seu nome",
+      "company":          "Empresa",
+      "companyPlaceholder": "Nome da empresa",
+      "whatsapp":         "WhatsApp",
+      "whatsappPlaceholder": "(79) 9 9999-9999",
+      "projectType":      "Tipo de projeto",
+      "projectTypePlaceholder": "Selecione...",
+      "projectTypes": [
+        "Sistema web sob medida",
+        "Aplicativo mobile",
+        "Automação e integração",
+        "Consultoria em tecnologia",
+        "Produto SaaS (tenho uma ideia)",
+        "Outro"
+      ],
+      "message":          "Sobre o projeto",
+      "messagePlaceholder": "O que você precisa? Quanto mais detalhes, melhor...",
+      "submit":           "Enviar mensagem"
+    }
+  },
+  "footer": {
+    "copy": "© 2026 Kozmo Tech · Sergipe, Brasil",
+    "links": [
+      { "label": "Sobre",    "href": "#sobre" },
+      { "label": "Serviços", "href": "#servicos" },
+      { "label": "Equipe",   "href": "#equipe" },
+      { "label": "Contato",  "href": "#contato" }
+    ]
+  },
+  "seo": {
+    "title":       "Kozmo Tech — Software House | Sergipe, Brasil",
+    "description": "Desenvolvemos software sob medida para pequenas e médias empresas. Sistemas web, apps mobile, automações e consultoria em tecnologia. Baseados em Sergipe, atendemos todo o Brasil.",
+    "ogLocale":    "pt_BR"
+  },
+  "accessibility": {
+    "open":          "Acessibilidade",
+    "close":         "Fechar",
+    "title":         "Acessibilidade",
+    "highContrast":  "Alto contraste",
+    "fontSize":      "Tamanho da fonte",
+    "fontSmall":     "Pequeno",
+    "fontNormal":    "Normal",
+    "fontLarge":     "Grande",
+    "reset":         "Redefinir tudo"
+  }
+}

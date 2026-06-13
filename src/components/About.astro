@@ -1,0 +1,51 @@
+---
+import type { T } from '../i18n/translations';
+
+interface Props {
+  t: T['about'];
+}
+
+const { t } = Astro.props;
+---
+
+<section id="sobre" class="sec-wrap relative z-10 py-25 px-[5%]">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal">
+      <div class="inline-flex items-center gap-2.5 font-display text-[9px] font-semibold tracking-[4px] uppercase text-cyan mb-5">
+        <div class="w-6 h-px bg-cyan"></div>
+        {t.eyebrow}
+      </div>
+
+      <h2 class="font-display font-extrabold leading-[1.15] tracking-[-0.5px] text-cosmos mb-4.5"
+        style="font-size: var(--text-section);">
+        {t.title} <span
+          style="background: linear-gradient(135deg, #00E5FF, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+        >{t.titleHighlight}</span>{t.titleSuffix}
+      </h2>
+
+      <p class="text-base text-muted-text leading-[1.75] font-light mb-4">{t.desc1}</p>
+      <p class="text-base text-muted-text leading-[1.75] font-light">{t.desc2}</p>
+
+      <div class="grid grid-cols-2 gap-3 mt-8 sm:grid-cols-4">
+        {t.cards.map(card => (
+          <div class="sb-card group relative overflow-hidden rounded-card p-5 transition-all duration-250 cursor-default"
+            style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+            <div class="top-bar absolute top-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+              style="background: linear-gradient(90deg, #00E5FF, #A855F7);"></div>
+            <span class="text-2xl mb-2.5 block">{card.icon}</span>
+            <div class="text-[13.5px] font-semibold text-cosmos">{card.name}</div>
+            <div class="text-xs text-muted-text mt-0.75 leading-[1.4]">{card.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sb-card:hover {
+    border-color: rgba(255,255,255,0.14) !important;
+    background: rgba(255,255,255,0.06) !important;
+    transform: translateY(-3px);
+  }
+</style>

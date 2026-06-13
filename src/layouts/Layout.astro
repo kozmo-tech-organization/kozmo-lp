@@ -1,0 +1,177 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: string;
+  ogLocale?: string;
+}
+
+const { title, description, lang = 'pt', ogLocale = 'pt_BR' } = Astro.props;
+
+const siteUrl  = 'https://kozmotech.com.br';
+const canonical = lang === 'pt' ? siteUrl : `${siteUrl}/${lang}`;
+
+const hreflangMap: Record<string, string> = {
+  pt: siteUrl,
+  en: `${siteUrl}/en`,
+  es: `${siteUrl}/es`,
+  fr: `${siteUrl}/fr`,
+};
+
+const htmlLangMap: Record<string, string> = {
+  pt: 'pt-BR',
+  en: 'en',
+  es: 'es',
+  fr: 'fr',
+};
+
+const ogLocaleAlternates: Record<string, string> = {
+  pt: 'pt_BR',
+  en: 'en_US',
+  es: 'es_ES',
+  fr: 'fr_FR',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Kozmo Tech',
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.svg`,
+  description,
+  address: {
+    '@type': 'PostalAddress',
+    addressRegion: 'SE',
+    addressCountry: 'BR',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    email: 'contato@kozmotech.com.br',
+  },
+};
+---
+
+<!doctype html>
+<html lang={htmlLangMap[lang] ?? lang} data-font-size="normal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    {Object.entries(hreflangMap).map(([l, href]) => (
+      <link rel="alternate" hreflang={htmlLangMap[l]} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={siteUrl} />
+
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonical} />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale"      content={ogLocale} />
+    {Object.entries(ogLocaleAlternates)
+      .filter(([l]) => l !== lang)
+      .map(([, loc]) => <meta property="og:locale:alternate" content={loc} />)}
+
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <script is:inline>
+      (function () {
+        var hc = localStorage.getItem('high-contrast') === '1';
+        var fs = localStorage.getItem('font-size') || 'normal';
+        var html = document.documentElement;
+        if (hc) html.classList.add('high-contrast');
+        if (fs !== 'normal') html.dataset.fontSize = fs;
+      })();
+    </script>
+  </head>
+
+  <body class="min-h-screen overflow-x-hidden antialiased">
+    <canvas id="starfield" class="fixed inset-0 z-0 pointer-events-none"></canvas>
+
+    <div class="nebula neb1 fixed rounded-full pointer-events-none z-0"></div>
+    <div class="nebula neb2 fixed rounded-full pointer-events-none z-0"></div>
+    <div class="nebula neb3 fixed rounded-full pointer-events-none z-0"></div>
+
+    <slot />
+
+    <script is:inline>
+      (function () {
+        var canvas = document.getElementById('starfield');
+        var ctx = canvas.getContext('2d');
+        var stars = [];
+
+        function resize() {
+          canvas.width  = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+
+        function initStars() {
+          stars = [];
+          var count = Math.floor((canvas.width * canvas.height) / 4000);
+          for (var i = 0; i < count; i++) {
+            stars.push({
+              x: Math.random() * canvas.width,
+              y: Math.random() * canvas.height,
+              r: Math.random() * 1.4 + 0.2,
+              alpha: Math.random() * 0.7 + 0.1,
+              speed: Math.random() * 0.003 + 0.001,
+              phase: Math.random() * Math.PI * 2,
+              color: Math.random() > 0.85
+                ? (Math.random() > 0.5 ? '#00E5FF' : '#A855F7')
+                : '#E8EAFF',
+            });
+          }
+        }
+
+        function draw(t) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (var i = 0; i < stars.length; i++) {
+            var s = stars[i];
+            var a = s.alpha * (0.6 + 0.4 * Math.sin(t * s.speed + s.phase));
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = s.color;
+            ctx.globalAlpha = a;
+            ctx.fill();
+          }
+          ctx.globalAlpha = 1;
+        }
+
+        resize();
+        initStars();
+
+        function animate(t) {
+          draw(t);
+          requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+
+        window.addEventListener('resize', function () {
+          resize();
+          initStars();
+        });
+      })();
+    </script>
+  </body>
+</html>

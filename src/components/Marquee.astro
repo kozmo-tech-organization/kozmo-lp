@@ -1,0 +1,32 @@
+---
+import type { T } from '../i18n/translations';
+
+interface Props {
+  t: T['marquee'];
+}
+
+const { t } = Astro.props;
+
+const doubled = [...t.items, ...t.items];
+---
+
+<div
+  class="marquee-wrap relative z-10 overflow-hidden whitespace-nowrap py-3.5"
+  style="border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,229,255,0.03);"
+  aria-hidden="true"
+>
+  <div class="marquee-track inline-flex">
+    {doubled.map((item, i) => (
+      <span class="mitem font-display text-[10px] font-semibold tracking-[3px] uppercase text-muted-text px-8 inline-flex items-center gap-4">
+        {i % 2 === 0 ? <b class="text-cyan">{item}</b> : item}
+        <span class="text-violet2 text-[8px]">◆</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-track {
+    animation: marqueeAnim 24s linear infinite;
+  }
+</style>

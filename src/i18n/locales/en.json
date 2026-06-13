@@ -1,0 +1,170 @@
+{
+  "lang": "en",
+  "nav": {
+    "about":    "About",
+    "services": "Services",
+    "product":  "Product",
+    "team":     "Team",
+    "contact":  "Contact",
+    "cta":      "Talk to Us"
+  },
+  "hero": {
+    "kicker":    "Software House · Sergipe · Brazil",
+    "titleLine1": "We Turn",
+    "titleLine2": "Ideas",
+    "titleLine3": "into digital products",
+    "desc": "We build custom software for small and medium businesses that want to grow with real technology. From MVP to scalable product, Kozmo is with you.",
+    "btn1": "Start a project",
+    "btn2": "See services",
+    "stats": [
+      { "num": "7+", "label": "Specialists on the team" },
+      { "num": "4+", "label": "Services offered" },
+      { "num": "SE", "label": "Based in Sergipe" },
+      { "num": "BR", "label": "We serve all Brazil" }
+    ]
+  },
+  "marquee": {
+    "items": [
+      "Web Development",
+      "Mobile Apps",
+      "Custom Software",
+      "Automations",
+      "IT Consulting",
+      "Integrations",
+      "SaaS Products"
+    ]
+  },
+  "about": {
+    "eyebrow": "Who we are",
+    "title":    "Software built to",
+    "titleHighlight": "work",
+    "titleSuffix": ".",
+    "desc1": "Kozmo Tech was born in Sergipe with a clear purpose: to bring quality technology to local businesses that deserve better tools.",
+    "desc2": "We are a young, technical team passionate about solving real problems. We don't just deliver code — we deliver impact on the client's business.",
+    "cards": [
+      { "icon": "💻", "name": "Custom Dev",   "desc": "Full web systems for your operation" },
+      { "icon": "📱", "name": "Mobile Apps",  "desc": "iOS and Android focused on experience" },
+      { "icon": "⚡", "name": "Automations",  "desc": "Smart processes and integrations" },
+      { "icon": "🧭", "name": "Consulting",   "desc": "Technology strategy and architecture" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title":   "What Kozmo",
+    "titleHighlight": "delivers",
+    "titleSuffix":    ".",
+    "viewAll": "See all →",
+    "items": [
+      { "num": "01", "icon": "🖥️", "title": "Software Development",   "desc": "Custom web systems from scratch, focused on performance, scalability and real usability." },
+      { "num": "02", "icon": "📱", "title": "Mobile Applications",    "desc": "Native and hybrid apps for iOS and Android. From design to store publishing, with an experience that delights." },
+      { "num": "03", "icon": "🔗", "title": "Automations & Integrations", "desc": "We connect systems, eliminate manual processes and make your operation run on its own." },
+      { "num": "04", "icon": "🧭", "title": "Technology Consulting",  "desc": "Got a product idea but don't know where to start? We help you structure it and bring it to life." }
+    ]
+  },
+  "product": {
+    "tag":   "Own product in development",
+    "title": "Smart scheduling with",
+    "titleHighlight": "WhatsApp",
+    "titleSuffix":    "integrated.",
+    "desc":  "Our first own SaaS: complete appointment management for barbershops, clinics and salons, with automatic confirmation via WhatsApp.",
+    "features": [
+      "Exclusive booking link per business",
+      "Automatic confirmation and reminder via WhatsApp",
+      "Integrated financial control and service orders",
+      "Automatic CRM with client reactivation"
+    ],
+    "cta": "I want early access",
+    "mock": {
+      "statItems": [
+        { "num": "12",   "color": "cyan",        "label": "Today" },
+        { "num": "$540", "color": "neon-green",  "label": "Revenue" },
+        { "num": "2",    "color": "neon-amber",  "label": "Pending" }
+      ],
+      "scheduleLabel": "Today's schedule",
+      "scheduleItems": [
+        { "time": "09:00", "name": "Carlos S.",  "status": "ok",   "label": "Confirmed" },
+        { "time": "10:30", "name": "Marcos R.",  "status": "pend", "label": "Pending" },
+        { "time": "11:00", "name": "João P.",    "status": "ok",   "label": "Confirmed" },
+        { "time": "14:00", "name": "Ana Lima",   "status": "canc", "label": "Cancelled" }
+      ]
+    }
+  },
+  "team": {
+    "eyebrow": "The team",
+    "title":   "Seven minds,",
+    "titleHighlight": "one purpose",
+    "titleSuffix":    ".",
+    "desc": "A multidisciplinary team from Sergipe, united by the will to build products that make a difference in the digital universe.",
+    "members": [
+      { "initials": "DE", "name": "Denisson", "role": "CEO & Leader",          "desc": "Strategic vision and leadership",   "avatarStyle": "background: linear-gradient(135deg, #7C3AED, #00E5FF)" },
+      { "initials": "WE", "name": "Wendell",  "role": "Tech Lead",             "desc": "Technical architecture and dev",    "avatarStyle": "background: linear-gradient(135deg, #6366F1, #A855F7)" },
+      { "initials": "KE", "name": "Keven",    "role": "Dev & Infra",           "desc": "Architecture and infrastructure",   "avatarStyle": "background: linear-gradient(135deg, #0EA5E9, #00E5FF)" },
+      { "initials": "AL", "name": "Allefe",   "role": "UI/UX Designer",        "desc": "Interfaces and experience",         "avatarStyle": "background: linear-gradient(135deg, #10B981, #00E5FF)" },
+      { "initials": "IG", "name": "Igor",     "role": "UI/UX & QA",            "desc": "Design and software quality",       "avatarStyle": "background: linear-gradient(135deg, #F59E0B, #EC4899)" },
+      { "initials": "MA", "name": "Matheus",  "role": "Sales & Dev Jr",        "desc": "Clients and development",           "avatarStyle": "background: linear-gradient(135deg, #EC4899, #A855F7)" },
+      { "initials": "SA", "name": "Saulo",    "role": "Finance & Marketing",   "desc": "Finance and brand strategy",        "avatarStyle": "background: linear-gradient(135deg, #14B8A6, #7C3AED)" }
+    ]
+  },
+  "location": {
+    "badge": "📍 Sergipe, Brazil",
+    "desc":  "Based in SE — We serve clients across the entire national territory."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title":   "Let's build something",
+    "titleHighlight": "together?",
+    "desc": "Have a project in mind or an idea that needs to get off the ground? Talk to us. The first conversation is on us.",
+    "links": [
+      { "icon": "💬", "label": "WhatsApp",  "value": "+55 (79) 9 9999-9999",         "href": "https://wa.me/5579999999999" },
+      { "icon": "✉️", "label": "E-mail",    "value": "contato@kozmotech.com.br",     "href": "mailto:contato@kozmotech.com.br" },
+      { "icon": "💼", "label": "LinkedIn",  "value": "linkedin.com/company/kozmotech", "href": "#" }
+    ],
+    "form": {
+      "title":            "Tell us about your project",
+      "name":             "Name",
+      "namePlaceholder":  "Your name",
+      "company":          "Company",
+      "companyPlaceholder": "Company name",
+      "whatsapp":         "WhatsApp",
+      "whatsappPlaceholder": "+55 (79) 9 9999-9999",
+      "projectType":      "Project type",
+      "projectTypePlaceholder": "Select...",
+      "projectTypes": [
+        "Custom web system",
+        "Mobile app",
+        "Automation and integration",
+        "Technology consulting",
+        "SaaS product (I have an idea)",
+        "Other"
+      ],
+      "message":          "About the project",
+      "messagePlaceholder": "What do you need? The more details, the better...",
+      "submit":           "Send message"
+    }
+  },
+  "footer": {
+    "copy": "© 2026 Kozmo Tech · Sergipe, Brazil",
+    "links": [
+      { "label": "About",    "href": "#sobre" },
+      { "label": "Services", "href": "#servicos" },
+      { "label": "Team",     "href": "#equipe" },
+      { "label": "Contact",  "href": "#contato" }
+    ]
+  },
+  "seo": {
+    "title":       "Kozmo Tech — Software House | Sergipe, Brazil",
+    "description": "We build custom software for small and medium businesses. Web systems, mobile apps, automations and IT consulting. Based in Sergipe, serving all of Brazil.",
+    "ogLocale":    "en_US"
+  },
+  "accessibility": {
+    "open":          "Accessibility",
+    "close":         "Close",
+    "title":         "Accessibility",
+    "highContrast":  "High contrast",
+    "fontSize":      "Font size",
+    "fontSmall":     "Small",
+    "fontNormal":    "Normal",
+    "fontLarge":     "Large",
+    "reset":         "Reset all"
+  }
+}

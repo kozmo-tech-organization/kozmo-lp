@@ -1,0 +1,156 @@
+---
+import type { T } from '../i18n/translations';
+
+interface Props {
+  t: T['contact'];
+}
+
+const { t } = Astro.props;
+---
+
+<section id="contato" class="relative z-10 py-25 px-[5%]">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 max-lg:gap-12 items-start">
+    <div class="reveal">
+      <div class="inline-flex items-center gap-2.5 font-display text-[9px] font-semibold tracking-[4px] uppercase text-cyan mb-5">
+        <div class="w-6 h-px bg-cyan"></div>
+        {t.eyebrow}
+      </div>
+      <h2 class="font-display font-extrabold leading-[1.15] tracking-[-0.5px] text-cosmos mb-4.5"
+        style="font-size: var(--text-section);">
+        {t.title} <span
+          style="background: linear-gradient(135deg, #00E5FF, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+        >{t.titleHighlight}</span>
+      </h2>
+      <p class="text-base text-muted-text leading-[1.75] font-light">{t.desc}</p>
+
+      <div class="flex flex-col gap-3 mt-8">
+        {t.links.map(link => (
+          <a href={link.href} class="ct-link flex items-center gap-3.5 rounded-[10px] p-4 no-underline transition-all duration-250"
+            style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg shrink-0"
+              style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+              {link.icon}
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="text-[10px] text-muted-text font-medium tracking-[0.5px] uppercase">{link.label}</div>
+              <div class="text-sm font-semibold text-cosmos mt-0.5 truncate">{link.value}</div>
+            </div>
+            <div class="ct-arr text-muted-text transition-all duration-200">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="ct-form relative overflow-hidden rounded-panel p-9 max-sm:py-6 max-sm:px-4.5 reveal"
+      style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+      <div class="absolute top-0 left-0 right-0 h-0.5"
+        style="background: linear-gradient(90deg, #00E5FF, #A855F7, #EC4899);"></div>
+      <div class="absolute inset-0 pointer-events-none"
+        style="background: radial-gradient(ellipse at top right, rgba(124,58,237,0.08) 0%, transparent 60%);"></div>
+
+      <div class="font-display text-sm font-bold text-cosmos mb-6 tracking-[1px] relative z-1">
+        {t.form.title}
+      </div>
+
+      <form class="relative z-1" novalidate>
+        <div class="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
+          <div class="mb-3.5">
+            <label class="form-label">{t.form.name}</label>
+            <input type="text" placeholder={t.form.namePlaceholder} class="form-input" />
+          </div>
+          <div class="mb-3.5">
+            <label class="form-label">{t.form.company}</label>
+            <input type="text" placeholder={t.form.companyPlaceholder} class="form-input" />
+          </div>
+        </div>
+        <div class="mb-3.5">
+          <label class="form-label">{t.form.whatsapp}</label>
+          <input type="tel" placeholder={t.form.whatsappPlaceholder} class="form-input" />
+        </div>
+        <div class="mb-3.5">
+          <label class="form-label">{t.form.projectType}</label>
+          <select class="form-input cursor-pointer">
+            <option value="">{t.form.projectTypePlaceholder}</option>
+            {t.form.projectTypes.map(pt => <option>{pt}</option>)}
+          </select>
+        </div>
+        <div class="mb-3.5">
+          <label class="form-label">{t.form.message}</label>
+          <textarea placeholder={t.form.messagePlaceholder} class="form-input resize-y min-h-22.5"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          {t.form.submit}
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ct-link:hover {
+    border-color: rgba(0,229,255,0.25) !important;
+    background: rgba(0,229,255,0.05) !important;
+    transform: translateX(5px);
+  }
+  .ct-link:hover .ct-arr { color: #00E5FF; transform: translateX(3px); }
+
+  .form-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: #7A7D9C;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+
+  .form-input {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 11px 14px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: #E8EAFF;
+    outline: none;
+    transition: all 0.2s;
+    appearance: none;
+  }
+  .form-input::placeholder { color: #4A4D6A; }
+  .form-input:focus {
+    border-color: rgba(0,229,255,0.4);
+    box-shadow: 0 0 0 3px rgba(0,229,255,0.08);
+    background: rgba(0,229,255,0.04);
+  }
+  select.form-input {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234A4D6A' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+  select.form-input option { background: #0D0B1A; color: #E8EAFF; }
+
+  .btn-submit {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #7C3AED, #00B8D4);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s;
+    margin-top: 20px;
+  }
+  .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(124,58,237,0.4); }
+</style>

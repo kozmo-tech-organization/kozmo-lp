@@ -1,0 +1,60 @@
+---
+import { getT } from '../i18n/translations';
+import Layout from '../layouts/Layout.astro';
+
+const t = getT('pt');
+---
+
+<Layout
+  title="404 — Kozmo Tech"
+  description="Página não encontrada."
+  lang="pt"
+>
+  <div class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative z-10">
+    <div
+      class="font-display font-black mb-4"
+      style="font-size: clamp(80px, 20vw, 160px); background: linear-gradient(135deg, #00E5FF, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;"
+    >404</div>
+    <p id="notFoundMsg" class="text-xl text-muted-text mb-8 font-light">{t.nav.about}</p>
+    <a
+      id="notFoundLink"
+      href="/"
+      class="inline-flex items-center gap-2 font-semibold text-[15px] px-8 py-4 rounded text-white transition-all hover:-translate-y-0.5"
+      style="background: linear-gradient(135deg, #7C3AED, #00B8D4);"
+    >
+      ← Voltar para o início
+    </a>
+  </div>
+</Layout>
+
+<script is:inline>
+  (function () {
+    var path  = window.location.pathname;
+    var lang  = 'pt';
+    if (path.startsWith('/en')) lang = 'en';
+    else if (path.startsWith('/es')) lang = 'es';
+    else if (path.startsWith('/fr')) lang = 'fr';
+
+    var msgs = {
+      pt: 'Página não encontrada.',
+      en: 'Page not found.',
+      es: 'Página no encontrada.',
+      fr: 'Page introuvable.',
+    };
+    var links = {
+      pt: [lang === 'pt' ? '/' : '/' + lang, 'Voltar para o início'],
+      en: ['/en', 'Back to home'],
+      es: ['/es', 'Volver al inicio'],
+      fr: ['/fr', 'Retour à l\'accueil'],
+    };
+
+    var msgEl  = document.getElementById('notFoundMsg');
+    var linkEl = document.getElementById('notFoundLink');
+    if (msgEl)  msgEl.textContent   = msgs[lang]  || msgs.pt;
+    if (linkEl) {
+      var l = links[lang] || links.pt;
+      linkEl.href        = l[0];
+      linkEl.textContent = '← ' + l[1];
+    }
+  })();
+</script>
