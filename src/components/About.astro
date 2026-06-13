@@ -4,43 +4,328 @@ import type { T } from '../i18n/translations';
 interface Props {
   t: T['about'];
 }
-
 const { t } = Astro.props;
+
+const statNumColor: Record<string, string> = {
+  cyan:         '#00E5FF',
+  'neon-green': '#10B981',
+  'neon-amber': '#F59E0B',
+};
+
+const RAW = [
+   8.2,  7.8,  6.5,  5.9,  6.8,  7.4,  8.1,  8.9,  9.2,  9.8, 10.5, 11.2,
+  11.8, 12.4, 13.1, 12.8, 13.9, 14.5, 15.2, 14.8, 15.9, 16.4, 17.1, 18.3,
+  18.9, 19.5, 20.1, 21.3, 20.8, 22.4, 23.1, 22.7, 24.2, 25.1, 24.8, 26.3,
+  27.1, 28.4, 27.9, 29.5, 30.2, 29.8, 31.4, 32.1, 31.8, 33.5, 34.2, 35.8,
+  36.4, 37.9, 37.2, 39.1, 40.3, 39.8, 41.5, 42.8, 41.9, 43.7, 44.2, 45.9,
+];
+const MONTHS_PT = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+
+const W = 480, H = 320;
+const PX = 10, PY = 18, LBOT = 22;
+const chartW = W - PX * 2;
+const chartH = H - PY - LBOT;
+const minV = Math.min(...RAW);
+const maxV = Math.max(...RAW);
+const range = maxV - minV;
+
+const pts = RAW.map((v, i) => ({
+  x: +(PX + (i / (RAW.length - 1)) * chartW).toFixed(2),
+  y: +(PY + (1 - (v - minV) / range) * chartH).toFixed(2),
+  v,
+  month: MONTHS_PT[i % 12],
+  year:  2020 + Math.floor(i / 12),
+  label: `R$${v.toFixed(1)}k`,
+}));
+
+const linePath = pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x} ${p.y}`).join(' ');
+const areaPath = `${linePath} L${pts[pts.length-1].x} ${PY+chartH} L${pts[0].x} ${PY+chartH}Z`;
+
+const yearTicks = [0, 12, 24, 36, 48].map(i => ({ x: pts[i].x, label: String(2020 + i/12) }));
+
+const gridYs = [0.25, 0.5, 0.75].map(f => +(PY + f * chartH).toFixed(1));
+
+const gridLabels = [0.25, 0.5, 0.75].map(f => {
+  const val = maxV - f * range;
+  return { y: PY + f * chartH, label: `R$${val.toFixed(0)}k` };
+});
+
+const jsonPts = JSON.stringify(pts.map(p => ({ x: p.x, y: p.y, label: p.label, month: p.month, year: p.year })));
 ---
 
 <section id="sobre" class="sec-wrap relative z-10 py-25 px-[5%]">
   <div class="max-w-7xl mx-auto">
-    <div class="reveal">
-      <div class="inline-flex items-center gap-2.5 font-display text-[9px] font-semibold tracking-[4px] uppercase text-cyan mb-5">
-        <div class="w-6 h-px bg-cyan"></div>
-        {t.eyebrow}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2.5 font-display text-[9px] font-semibold tracking-[4px] uppercase text-cyan mb-5">
+          <div class="w-6 h-px bg-cyan"></div>
+          {t.eyebrow}
+        </div>
+
+        <h2 class="font-display font-extrabold leading-[1.15] tracking-[-0.5px] text-cosmos mb-4.5"
+          style="font-size: var(--text-section);">
+          {t.title} <span
+            style="background: linear-gradient(135deg, #00E5FF, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
+          >{t.titleHighlight}</span>{t.titleSuffix}
+        </h2>
+
+        <p class="text-base text-muted-text leading-[1.75] font-light mb-4">{t.desc1}</p>
+        <p class="text-base text-muted-text leading-[1.75] font-light mb-5">{t.desc2}</p>
+
+        <div class="grid grid-cols-2 gap-3">
+          {t.cards.map(card => (
+            <div class="sb-card group relative overflow-hidden rounded-card p-5 transition-all duration-250 cursor-default"
+              style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+              <div class="top-bar absolute top-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                style="background: linear-gradient(90deg, #00E5FF, #A855F7);"></div>
+              <span class="text-2xl mb-2.5 block">{card.icon}</span>
+              <div class="text-[13.5px] font-semibold text-cosmos">{card.name}</div>
+              <div class="text-xs text-muted-text mt-0.75 leading-[1.4]">{card.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        <a href="#contato" class="about-btn mt-6">
+          <span>{t.cta} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
       </div>
 
-      <h2 class="font-display font-extrabold leading-[1.15] tracking-[-0.5px] text-cosmos mb-4.5"
-        style="font-size: var(--text-section);">
-        {t.title} <span
-          style="background: linear-gradient(135deg, #00E5FF, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
-        >{t.titleHighlight}</span>{t.titleSuffix}
-      </h2>
+      <div class="reveal flex flex-col gap-4">
+      <div class="relative overflow-hidden rounded-[20px] p-6 max-sm:p-4"
+        style="background: linear-gradient(135deg, rgba(124,58,237,0.11) 0%, rgba(0,229,255,0.05) 100%); border: 1px solid rgba(124,58,237,0.2);">
 
-      <p class="text-base text-muted-text leading-[1.75] font-light mb-4">{t.desc1}</p>
-      <p class="text-base text-muted-text leading-[1.75] font-light">{t.desc2}</p>
+        <div class="absolute inset-0 pointer-events-none"
+          style="background: radial-gradient(ellipse at top left, rgba(124,58,237,0.14) 0%, transparent 60%);"></div>
 
-      <div class="grid grid-cols-2 gap-3 mt-8 sm:grid-cols-4">
-        {t.cards.map(card => (
-          <div class="sb-card group relative overflow-hidden rounded-card p-5 transition-all duration-250 cursor-default"
-            style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
-            <div class="top-bar absolute top-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-              style="background: linear-gradient(90deg, #00E5FF, #A855F7);"></div>
-            <span class="text-2xl mb-2.5 block">{card.icon}</span>
-            <div class="text-[13.5px] font-semibold text-cosmos">{card.name}</div>
-            <div class="text-xs text-muted-text mt-0.75 leading-[1.4]">{card.desc}</div>
+        <div class="relative z-1">
+
+          <div class="flex items-center justify-between mb-5">
+            <span class="font-display text-[9px] font-semibold tracking-[2.5px] uppercase"
+              style="color: rgba(255,255,255,0.35);">{t.mock.chartLabel}</span>
+            <span class="inline-flex items-center gap-1.5 font-display text-[8px] font-semibold tracking-[1.5px] uppercase px-2.5 py-1 rounded-full"
+              style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); color: #10B981;">
+              <span class="w-1.5 h-1.5 rounded-full inline-block live-dot" style="background:#10B981;"></span>
+              Live
+            </span>
           </div>
-        ))}
+
+          <div class="grid grid-cols-3 mb-5 pb-5" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+            {t.mock.stats.map((s, i: number) => (
+              <div class="text-center"
+                style={i < t.mock.stats.length - 1 ? 'border-right: 1px solid rgba(255,255,255,0.07);' : ''}>
+                <div class="font-display font-extrabold leading-none mb-1.5"
+                  style={`font-size: clamp(1.2rem, 2vw, 1.55rem); color: ${statNumColor[s.color] ?? '#E8EAFF'};`}>
+                  {s.num}
+                </div>
+                <div class="text-[10px] text-muted-text">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div class="relative select-none" style="cursor: crosshair;">
+            <svg
+              id="about-chart-svg"
+              viewBox={`0 0 ${W} ${H}`}
+              class="w-full"
+              style="overflow: visible;"
+              data-pts={jsonPts}
+              data-w={W}
+            >
+              <defs>
+                <linearGradient id="ab-area-g" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#00E5FF" stop-opacity="0.18"/>
+                  <stop offset="75%"  stop-color="#7C3AED" stop-opacity="0.06"/>
+                  <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.0"/>
+                </linearGradient>
+                <linearGradient id="ab-line-g" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stop-color="#7C3AED"/>
+                  <stop offset="55%"  stop-color="#5B8DEF"/>
+                  <stop offset="100%" stop-color="#00E5FF"/>
+                </linearGradient>
+              </defs>
+
+              {gridYs.map((gy) => (
+                <line
+                  x1={PX} y1={gy} x2={W - PX} y2={gy}
+                  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4 5"
+                />
+              ))}
+
+              {gridLabels.map(gl => (
+                <text
+                  x={PX + 2} y={gl.y - 3}
+                  fill="rgba(255,255,255,0.18)"
+                  font-size="8" font-family="DM Sans,sans-serif"
+                >{gl.label}</text>
+              ))}
+
+              <path d={areaPath} fill="url(#ab-area-g)"/>
+
+              <path
+                id="ab-line"
+                d={linePath}
+                fill="none"
+                stroke="url(#ab-line-g)"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <circle
+                cx={pts[pts.length-1].x} cy={pts[pts.length-1].y}
+                r="3.5" fill="#00E5FF" stroke="rgba(6,5,15,0.9)" stroke-width="2"
+              />
+
+              {yearTicks.map(yt => (
+                <text
+                  x={yt.x} y={H - 5}
+                  text-anchor="middle"
+                  fill="rgba(255,255,255,0.28)"
+                  font-size="9.5" font-family="DM Sans,sans-serif"
+                >{yt.label}</text>
+              ))}
+
+              <g id="ab-cursor" style="display:none; pointer-events:none;">
+                <line id="ab-vline"
+                  x1="0" y1={PY} x2="0" y2={PY + chartH}
+                  stroke="rgba(0,229,255,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+                <line id="ab-hline"
+                  x1={PX} y1="0" x2={W - PX} y2="0"
+                  stroke="rgba(0,229,255,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
+                <circle id="ab-hdot" r="5"
+                  fill="#00E5FF" stroke="rgba(6,5,15,0.9)" stroke-width="2.5"/>
+                <rect id="ab-tt-bg" rx="5" ry="5" width="80" height="38"
+                  fill="rgba(4,4,18,0.92)" stroke="rgba(0,229,255,0.28)" stroke-width="1"/>
+                <text id="ab-tt-date"
+                  font-size="9" font-family="DM Sans,sans-serif"
+                  fill="rgba(255,255,255,0.45)" text-anchor="middle"/>
+                <text id="ab-tt-val"
+                  font-size="12" font-family="DM Sans,sans-serif"
+                  font-weight="700" fill="#00E5FF" text-anchor="middle"/>
+              </g>
+            </svg>
+          </div>
+
+          <div class="mt-2 text-center">
+            <span class="font-display text-[8px] tracking-[1.5px] uppercase"
+              style="color: rgba(255,255,255,0.17);">{t.mock.footer}</span>
+          </div>
+
+        </div>
       </div>
+
+      <div class="flex gap-3 p-4 rounded-xl"
+        style="background: rgba(0,229,255,0.04); border: 1px solid rgba(0,229,255,0.14);">
+        <span class="text-base mt-0.5 shrink-0">📈</span>
+        <p class="text-sm text-muted-text leading-[1.7]">{t.chartDesc}</p>
+      </div>
+
+      </div>
+
     </div>
   </div>
 </section>
+
+<script>
+  function initAboutChart() {
+    const svg = document.getElementById('about-chart-svg') as SVGSVGElement | null;
+    if (!svg || (svg as any).__abInit) return;
+    (svg as any).__abInit = true;
+
+    type Pt = { x: number; y: number; label: string; month: string; year: number };
+    const pts: Pt[]     = JSON.parse(svg.dataset.pts ?? '[]');
+    const SVG_W = parseFloat(svg.dataset.w ?? '480');
+    const TT_W = 80, TT_H = 38;
+
+    const cursor  = document.getElementById('ab-cursor')  as SVGGElement    | null;
+    const vline   = document.getElementById('ab-vline')   as SVGLineElement | null;
+    const hline   = document.getElementById('ab-hline')   as SVGLineElement | null;
+    const hdot    = document.getElementById('ab-hdot')    as SVGCircleElement| null;
+    const ttBg    = document.getElementById('ab-tt-bg')   as SVGRectElement | null;
+    const ttDate  = document.getElementById('ab-tt-date') as SVGTextElement  | null;
+    const ttVal   = document.getElementById('ab-tt-val')  as SVGTextElement  | null;
+    const line    = document.getElementById('ab-line')    as SVGPathElement  | null;
+
+    if (!cursor || !vline || !hline || !hdot || !ttBg || !ttDate || !ttVal || !line) return;
+
+    const len = line.getTotalLength();
+    line.style.strokeDasharray  = String(len);
+    line.style.strokeDashoffset = String(len);
+    requestAnimationFrame(() => {
+      line.style.transition = 'stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1) 0.15s';
+      line.style.strokeDashoffset = '0';
+    });
+
+    function clientToSvgX(clientX: number): number {
+      const ctm = svg!.getScreenCTM();
+      if (!ctm) return 0;
+      const pt = svg!.createSVGPoint();
+      pt.x = clientX;
+      pt.y = 0;
+      return pt.matrixTransform(ctm.inverse()).x;
+    }
+
+    function nearest(svgX: number): number {
+      let best = 0, bestDist = Infinity;
+      for (let i = 0; i < pts.length; i++) {
+        const d = Math.abs(pts[i].x - svgX);
+        if (d < bestDist) { bestDist = d; best = i; }
+      }
+      return best;
+    }
+
+    function show(idx: number) {
+      const p = pts[idx];
+      if (!p) return;
+      cursor!.style.display = 'block';
+
+      vline!.setAttribute('x1', String(p.x));
+      vline!.setAttribute('x2', String(p.x));
+      hline!.setAttribute('y1', String(p.y));
+      hline!.setAttribute('y2', String(p.y));
+      hdot!.setAttribute('cx',  String(p.x));
+      hdot!.setAttribute('cy',  String(p.y));
+
+      const ttX = Math.max(2, Math.min(p.x - TT_W / 2, SVG_W - TT_W - 2));
+      const ttY = Math.max(2, p.y - TT_H - 12);
+
+      ttBg!.setAttribute('x', String(ttX));
+      ttBg!.setAttribute('y', String(ttY));
+
+      const cx = ttX + TT_W / 2;
+      ttDate!.setAttribute('x', String(cx));
+      ttDate!.setAttribute('y', String(ttY + 14));
+      ttDate!.textContent = `${p.month} ${p.year}`;
+
+      ttVal!.setAttribute('x', String(cx));
+      ttVal!.setAttribute('y', String(ttY + 30));
+      ttVal!.textContent = p.label;
+    }
+
+    function hide() {
+      cursor!.style.display = 'none';
+    }
+
+    svg.addEventListener('mousemove', e => {
+      const svgX = clientToSvgX(e.clientX);
+      show(nearest(svgX));
+    });
+    svg.addEventListener('mouseleave', hide);
+
+    svg.addEventListener('touchmove', e => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      if (!touch) return;
+      const svgX = clientToSvgX(touch.clientX);
+      show(nearest(svgX));
+    }, { passive: false });
+    svg.addEventListener('touchend', hide);
+  }
+
+  document.addEventListener('DOMContentLoaded', initAboutChart);
+</script>
 
 <style>
   .sb-card:hover {
@@ -48,4 +333,40 @@ const { t } = Astro.props;
     background: rgba(255,255,255,0.06) !important;
     transform: translateY(-3px);
   }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+  .live-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+  .about-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    padding: 14px 48px;
+    background: linear-gradient(135deg, #7C3AED 0%, #00B8D4 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #00B8D4 0%, #7C3AED 100%);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .about-btn:hover::after { opacity: 1; }
+  .about-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.5); }
+  .about-btn span { position: relative; z-index: 1; display: flex; align-items: center; gap: 8px; }
 </style>

@@ -7,8 +7,8 @@ interface Props {
 
 const { t } = Astro.props;
 
-const rowOne = t.members.slice(0, 4);
-const rowTwo = t.members.slice(4);
+const rowOne = t.roles.slice(0, 4);
+const rowTwo = t.roles.slice(4);
 ---
 
 <section
@@ -32,39 +32,45 @@ const rowTwo = t.members.slice(4);
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-3.5">
-      {rowOne.map(m => (
+      {rowOne.map(role => (
         <div class="tc group relative overflow-hidden rounded-[14px] py-7 px-4.5 text-center transition-all duration-250 reveal"
           style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
           <div class="top-bar absolute top-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
             style="background: linear-gradient(90deg, #00E5FF, #A855F7);"></div>
-          <div class="tc-av relative w-15 h-15 rounded-full mx-auto mb-3.5 flex items-center justify-center font-display text-base font-bold text-white"
-            style={m.avatarStyle}>
+          <div class="w-14 h-14 rounded-2xl mx-auto mb-3.5 flex items-center justify-center text-2xl"
+            style={`${role.iconStyle}; opacity: 0.9;`}>
+            {role.icon}
           </div>
-          <div class="font-display text-[13px] font-bold text-cosmos mb-1.25 tracking-[1px]">{m.name}</div>
-          <div>
-            <strong class="block text-[9px] font-semibold tracking-[2px] uppercase text-cyan mb-0.75">{m.role}</strong>
-            <span class="text-xs text-muted-text block leading-[1.4]">{m.desc}</span>
-          </div>
+          <strong class="block text-[9px] font-semibold tracking-[2px] uppercase text-cyan mb-1">{role.area}</strong>
+          <div class="font-display text-[13px] font-bold text-cosmos mb-1.25 tracking-[0.5px]">{role.title}</div>
+          <span class="text-xs text-muted-text block leading-[1.4]">{role.desc}</span>
         </div>
       ))}
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 max-w-225 mx-auto">
-      {rowTwo.map(m => (
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 max-w-225 mx-auto mb-10">
+      {rowTwo.map(role => (
         <div class="tc group relative overflow-hidden rounded-[14px] py-7 px-4.5 text-center transition-all duration-250 reveal"
           style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
           <div class="top-bar absolute top-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
             style="background: linear-gradient(90deg, #00E5FF, #A855F7);"></div>
-          <div class="tc-av relative w-15 h-15 rounded-full mx-auto mb-3.5 flex items-center justify-center font-display text-base font-bold text-white"
-            style={m.avatarStyle}>
+          <div class="w-14 h-14 rounded-2xl mx-auto mb-3.5 flex items-center justify-center text-2xl"
+            style={`${role.iconStyle}; opacity: 0.9;`}>
+            {role.icon}
           </div>
-          <div class="font-display text-[13px] font-bold text-cosmos mb-1.25 tracking-[1px]">{m.name}</div>
-          <div>
-            <strong class="block text-[9px] font-semibold tracking-[2px] uppercase text-cyan mb-0.75">{m.role}</strong>
-            <span class="text-xs text-muted-text block leading-[1.4]">{m.desc}</span>
-          </div>
+          <strong class="block text-[9px] font-semibold tracking-[2px] uppercase text-cyan mb-1">{role.area}</strong>
+          <div class="font-display text-[13px] font-bold text-cosmos mb-1.25 tracking-[0.5px]">{role.title}</div>
+          <span class="text-xs text-muted-text block leading-[1.4]">{role.desc}</span>
         </div>
       ))}
+    </div>
+
+    <div class="flex justify-center reveal">
+      <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[11px] font-semibold text-cyan tracking-[2px] uppercase"
+        style="background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.15);">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan inline-block" style="box-shadow: 0 0 6px #00E5FF;"></span>
+        {t.stat}
+      </div>
     </div>
   </div>
 </section>

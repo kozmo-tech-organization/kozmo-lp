@@ -41,12 +41,32 @@
     "titleSuffix": ".",
     "desc1": "Kozmo Tech est née à Sergipe avec un objectif clair : apporter une technologie de qualité aux entreprises locales qui méritent de meilleurs outils.",
     "desc2": "Nous sommes une équipe jeune, technique et passionnée par la résolution de problèmes réels. Nous ne livrons pas que du code — nous livrons un impact sur le business du client.",
+    "chartDesc": "Le graphique illustre l'évolution moyenne du chiffre d'affaires mensuel de nos clients entre 2020 et 2024 — de R$8k/mois à R$45k/mois, une croissance de plus de 5× en 5 ans de partenariat.",
+    "cta": "Démarrer un projet",
     "cards": [
       { "icon": "💻", "name": "Dev sur mesure",  "desc": "Systèmes web complets pour votre activité" },
       { "icon": "📱", "name": "Apps Mobiles",    "desc": "iOS et Android axés sur l'expérience" },
       { "icon": "⚡", "name": "Automatisations", "desc": "Processus intelligents et intégrations" },
       { "icon": "🧭", "name": "Conseil",         "desc": "Stratégie et architecture technologique" }
-    ]
+    ],
+    "mock": {
+      "panelLabel": "Impact business",
+      "stats": [
+        { "num": "+47%", "color": "neon-green", "label": "Chiffre d'aff." },
+        { "num": "-38%", "color": "cyan",       "label": "Ops manuelles" },
+        { "num": "3.2x", "color": "neon-amber", "label": "Échelle clients" }
+      ],
+      "chartLabel": "Chiffre d'affaires mensuel · Évolution sur 5 ans",
+      "chartBars": [
+        { "month": "Jan", "value": "€8k",  "pct": 28 },
+        { "month": "Fév", "value": "€12k", "pct": 41 },
+        { "month": "Mar", "value": "€16k", "pct": 55 },
+        { "month": "Avr", "value": "€20k", "pct": 69 },
+        { "month": "Mai", "value": "€25k", "pct": 86 },
+        { "month": "Jun", "value": "€29k", "pct": 100 }
+      ],
+      "footer": "Croissance moyenne clients Kozmo · 2020–2024"
+    }
   },
   "services": {
     "eyebrow": "Services",
@@ -54,6 +74,7 @@
     "titleHighlight": "livre",
     "titleSuffix":    ".",
     "viewAll": "Voir tout →",
+    "cta": "Démarrer un projet",
     "items": [
       { "num": "01", "icon": "🖥️", "title": "Développement Logiciel",      "desc": "Systèmes web personnalisés depuis zéro, axés sur la performance, la scalabilité et l'utilisabilité réelle." },
       { "num": "02", "icon": "📱", "title": "Applications Mobiles",        "desc": "Apps natives et hybrides pour iOS et Android. Du design à la publication en boutique." },
@@ -62,47 +83,76 @@
     ]
   },
   "product": {
-    "tag":   "Produit propre en développement",
-    "title": "Prise de rendez-vous intelligente avec",
-    "titleHighlight": "WhatsApp",
-    "titleSuffix":    "intégré.",
-    "desc":  "Notre premier SaaS : gestion complète des rendez-vous pour barbiers, cliniques et salons, avec confirmation automatique via WhatsApp.",
+    "eyebrow": "Produit",
+    "sectionTitle": "Ce que nous",
+    "sectionHighlight": "construisons",
+    "sectionSuffix": ".",
+    "startCta": "Démarrer un projet",
+    "tag":   "Disponible",
+    "title": "Menu digital avec",
+    "titleHighlight": "QR Code",
+    "titleSuffix":    "et commandes intégrées.",
+    "desc":  "Nous transformons l'expérience de votre restaurant : menu multilingue accessible par téléphone via QR Code, commandes en ligne, gestion des tables et suivi en temps réel — sur place ou livraison.",
     "features": [
-      "Lien de réservation exclusif par entreprise",
-      "Confirmation et rappel automatique via WhatsApp",
-      "Contrôle financier et ordres de service intégrés",
-      "CRM automatique avec réactivation des clients"
+      "Menu en plusieurs langues via QR Code — idéal pour les touristes",
+      "Commandes par table, comptoir ou livraison avec statut en temps réel",
+      "Appel serveur et gestion des tables intégrés",
+      "Contrôle des stocks et rapports clients et ventes",
+      "Calendrier de réservations intégré"
     ],
-    "cta": "Je veux un accès anticipé",
+    "cta": "Découvrir le produit",
+    "pipelineLabel": "Prochains lancements",
+    "pipelineTag":   "En développement",
     "mock": {
       "statItems": [
-        { "num": "12",    "color": "cyan",        "label": "Aujourd'hui" },
-        { "num": "€540",  "color": "neon-green",  "label": "Caisse" },
-        { "num": "2",     "color": "neon-amber",  "label": "En attente" }
+        { "num": "8",     "color": "cyan",        "label": "Tables actives" },
+        { "num": "€1.2k", "color": "neon-green",  "label": "Chiffre d'affaires" },
+        { "num": "3",     "color": "neon-amber",  "label": "En préparation" }
       ],
-      "scheduleLabel": "Agenda du jour",
+      "scheduleLabel": "Commandes actives",
       "scheduleItems": [
-        { "time": "09:00", "name": "Carlos S.",  "status": "ok",   "label": "Confirmé" },
-        { "time": "10:30", "name": "Marcos R.",  "status": "pend", "label": "En attente" },
-        { "time": "11:00", "name": "João P.",    "status": "ok",   "label": "Confirmé" },
-        { "time": "14:00", "name": "Ana Lima",   "status": "canc", "label": "Annulé" }
+        { "time": "Table 4",  "name": "Burger + Jus",        "status": "pend", "label": "En prép." },
+        { "time": "Table 7",  "name": "Saumon en sauce",     "status": "ok",   "label": "Prêt" },
+        { "time": "Livraison","name": "Pizza Margherita",    "status": "pend", "label": "En prép." },
+        { "time": "Table 2",  "name": "Serveur demandé",     "status": "canc", "label": "Attention" }
       ]
-    }
+    },
+    "pipeline": [
+      {
+        "icon": "🏢",
+        "title": "Gestion de Copropriété",
+        "desc": "Gestion complète de copropriété : résidents, annonces, réservation d'espaces communs, contrôle des visiteurs et finances intégrées.",
+        "features": ["Gestion des résidents et unités", "Réservation d'espaces communs et annonces", "Finances, facturation et contrôle des visiteurs"]
+      },
+      {
+        "icon": "📅",
+        "title": "Prise de Rendez-vous",
+        "desc": "Plateforme de rendez-vous pour tout secteur : coiffeurs, cliniques, salons et plus, avec CRM automatique.",
+        "features": ["Lien de réservation exclusif par entreprise", "Confirmations et rappels automatiques", "CRM et historique clients"]
+      },
+      {
+        "icon": "📦",
+        "title": "Gestion des Stocks",
+        "desc": "Gestion intelligente des stocks avec entrées, sorties, alertes et rapports intégrés à votre flux de ventes.",
+        "features": ["Entrées et sorties automatisées", "Alertes de stock minimum", "Rapports de rotation, pertes et ventes"]
+      }
+    ]
   },
   "team": {
     "eyebrow": "L'équipe",
-    "title":   "Sept esprits,",
+    "title":   "Plusieurs fronts,",
     "titleHighlight": "un seul but",
     "titleSuffix":    ".",
-    "desc": "Une équipe multidisciplinaire de Sergipe, unie par la volonté de construire des produits qui font la différence dans l'univers digital.",
-    "members": [
-      { "initials": "DE", "name": "Denisson", "role": "PDG & Leader",            "desc": "Vision stratégique et leadership",   "avatarStyle": "background: linear-gradient(135deg, #7C3AED, #00E5FF)" },
-      { "initials": "WE", "name": "Wendell",  "role": "Tech Lead",               "desc": "Architecture technique et dev",      "avatarStyle": "background: linear-gradient(135deg, #6366F1, #A855F7)" },
-      { "initials": "KE", "name": "Keven",    "role": "Dev & Infra",             "desc": "Architecture et infrastructure",     "avatarStyle": "background: linear-gradient(135deg, #0EA5E9, #00E5FF)" },
-      { "initials": "AL", "name": "Allefe",   "role": "Designer UI/UX",          "desc": "Interfaces et expérience",           "avatarStyle": "background: linear-gradient(135deg, #10B981, #00E5FF)" },
-      { "initials": "IG", "name": "Igor",     "role": "UI/UX & QA",              "desc": "Design et qualité logicielle",       "avatarStyle": "background: linear-gradient(135deg, #F59E0B, #EC4899)" },
-      { "initials": "MA", "name": "Matheus",  "role": "Commercial & Dev Jr",     "desc": "Clients et développement",           "avatarStyle": "background: linear-gradient(135deg, #EC4899, #A855F7)" },
-      { "initials": "SA", "name": "Saulo",    "role": "Contrôle & Marketing",    "desc": "Finance et stratégie de marque",     "avatarStyle": "background: linear-gradient(135deg, #14B8A6, #7C3AED)" }
+    "desc": "Une équipe multidisciplinaire de Sergipe, avec des spécialistes sur chaque front pour livrer des produits digitaux complets.",
+    "stat": "7+ spécialistes · Sergipe, Brésil",
+    "roles": [
+      { "icon": "💻", "area": "Frontend",  "title": "Dev Frontend",    "desc": "Interfaces modernes, responsives et haute performance",     "iconStyle": "background: linear-gradient(135deg, #6366F1, #00E5FF)" },
+      { "icon": "⚙️", "area": "Backend",   "title": "Dev Backend",     "desc": "APIs robustes, logique métier et intégrations",            "iconStyle": "background: linear-gradient(135deg, #7C3AED, #A855F7)" },
+      { "icon": "📱", "area": "Mobile",    "title": "Mobile Apps",     "desc": "iOS et Android, natifs et hybrides axés sur l'UX",         "iconStyle": "background: linear-gradient(135deg, #0EA5E9, #00E5FF)" },
+      { "icon": "🎨", "area": "Design",    "title": "UI/UX Design",    "desc": "Expériences qui enchantent, convertissent et fidélisent",  "iconStyle": "background: linear-gradient(135deg, #10B981, #00E5FF)" },
+      { "icon": "🏗️", "area": "DevOps",    "title": "Infra & DevOps",  "desc": "Cloud, déploiement automatisé et architecture scalable",   "iconStyle": "background: linear-gradient(135deg, #F59E0B, #EC4899)" },
+      { "icon": "🧪", "area": "QA",        "title": "QA & Tests",      "desc": "Qualité garantie et livraisons sans régressions",          "iconStyle": "background: linear-gradient(135deg, #EC4899, #A855F7)" },
+      { "icon": "📊", "area": "Business",  "title": "Stratégie",       "desc": "Vision produit, relations clients et croissance de marque","iconStyle": "background: linear-gradient(135deg, #14B8A6, #7C3AED)" }
     ]
   },
   "location": {

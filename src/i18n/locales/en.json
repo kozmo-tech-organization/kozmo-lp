@@ -41,12 +41,32 @@
     "titleSuffix": ".",
     "desc1": "Kozmo Tech was born in Sergipe with a clear purpose: to bring quality technology to local businesses that deserve better tools.",
     "desc2": "We are a young, technical team passionate about solving real problems. We don't just deliver code — we deliver impact on the client's business.",
+    "chartDesc": "The chart illustrates the average monthly revenue growth of our clients from 2020 to 2024 — starting at R$8k/month and reaching R$45k/month, more than 5× growth in 5 years of partnership.",
+    "cta": "Start a project",
     "cards": [
       { "icon": "💻", "name": "Custom Dev",   "desc": "Full web systems for your operation" },
       { "icon": "📱", "name": "Mobile Apps",  "desc": "iOS and Android focused on experience" },
       { "icon": "⚡", "name": "Automations",  "desc": "Smart processes and integrations" },
       { "icon": "🧭", "name": "Consulting",   "desc": "Technology strategy and architecture" }
-    ]
+    ],
+    "mock": {
+      "panelLabel": "Business impact",
+      "stats": [
+        { "num": "+47%", "color": "neon-green", "label": "Revenue" },
+        { "num": "-38%", "color": "cyan",       "label": "Manual ops" },
+        { "num": "3.2x", "color": "neon-amber", "label": "Client scale" }
+      ],
+      "chartLabel": "Monthly revenue · 5-year evolution",
+      "chartBars": [
+        { "month": "Jan", "value": "$8k",  "pct": 28 },
+        { "month": "Feb", "value": "$12k", "pct": 41 },
+        { "month": "Mar", "value": "$16k", "pct": 55 },
+        { "month": "Apr", "value": "$20k", "pct": 69 },
+        { "month": "May", "value": "$25k", "pct": 86 },
+        { "month": "Jun", "value": "$29k", "pct": 100 }
+      ],
+      "footer": "Avg. Kozmo client growth · 2020–2024"
+    }
   },
   "services": {
     "eyebrow": "Services",
@@ -54,6 +74,7 @@
     "titleHighlight": "delivers",
     "titleSuffix":    ".",
     "viewAll": "See all →",
+    "cta": "Start a project",
     "items": [
       { "num": "01", "icon": "🖥️", "title": "Software Development",   "desc": "Custom web systems from scratch, focused on performance, scalability and real usability." },
       { "num": "02", "icon": "📱", "title": "Mobile Applications",    "desc": "Native and hybrid apps for iOS and Android. From design to store publishing, with an experience that delights." },
@@ -62,47 +83,76 @@
     ]
   },
   "product": {
-    "tag":   "Own product in development",
-    "title": "Smart scheduling with",
-    "titleHighlight": "WhatsApp",
-    "titleSuffix":    "integrated.",
-    "desc":  "Our first own SaaS: complete appointment management for barbershops, clinics and salons, with automatic confirmation via WhatsApp.",
+    "eyebrow": "Product",
+    "sectionTitle": "What we're",
+    "sectionHighlight": "building",
+    "sectionSuffix": ".",
+    "startCta": "Start a project",
+    "tag":   "Available",
+    "title": "Digital menu with",
+    "titleHighlight": "QR Code",
+    "titleSuffix":    "and integrated orders.",
+    "desc":  "We transform your restaurant experience: multilingual menu accessible by phone via QR Code, online orders, table management and real-time tracking — dine-in or delivery.",
     "features": [
-      "Exclusive booking link per business",
-      "Automatic confirmation and reminder via WhatsApp",
-      "Integrated financial control and service orders",
-      "Automatic CRM with client reactivation"
+      "Menu in multiple languages via QR Code — great for tourists",
+      "Orders by table, counter or delivery with real-time status",
+      "Waiter call and integrated table management",
+      "Inventory control and customer & sales reports",
+      "Integrated reservation calendar"
     ],
-    "cta": "I want early access",
+    "cta": "Learn about the product",
+    "pipelineLabel": "Coming soon",
+    "pipelineTag":   "In development",
     "mock": {
       "statItems": [
-        { "num": "12",   "color": "cyan",        "label": "Today" },
-        { "num": "$540", "color": "neon-green",  "label": "Revenue" },
-        { "num": "2",    "color": "neon-amber",  "label": "Pending" }
+        { "num": "8",     "color": "cyan",        "label": "Active tables" },
+        { "num": "$1.2k", "color": "neon-green",  "label": "Revenue" },
+        { "num": "3",     "color": "neon-amber",  "label": "In progress" }
       ],
-      "scheduleLabel": "Today's schedule",
+      "scheduleLabel": "Active orders",
       "scheduleItems": [
-        { "time": "09:00", "name": "Carlos S.",  "status": "ok",   "label": "Confirmed" },
-        { "time": "10:30", "name": "Marcos R.",  "status": "pend", "label": "Pending" },
-        { "time": "11:00", "name": "João P.",    "status": "ok",   "label": "Confirmed" },
-        { "time": "14:00", "name": "Ana Lima",   "status": "canc", "label": "Cancelled" }
+        { "time": "Table 4",  "name": "Burger + Juice",    "status": "pend", "label": "In progress" },
+        { "time": "Table 7",  "name": "Salmon in sauce",   "status": "ok",   "label": "Ready" },
+        { "time": "Delivery", "name": "Margherita Pizza",  "status": "pend", "label": "In progress" },
+        { "time": "Table 2",  "name": "Waiter requested",  "status": "canc", "label": "Attention" }
       ]
-    }
+    },
+    "pipeline": [
+      {
+        "icon": "🏢",
+        "title": "Condo Management",
+        "desc": "Complete condominium management: residents, announcements, common area reservations, visitor control and integrated financials.",
+        "features": ["Resident and unit management", "Common area reservations and announcements", "Financials, billing and visitor control"]
+      },
+      {
+        "icon": "📅",
+        "title": "General Scheduling",
+        "desc": "Scheduling platform for any segment: barbershops, clinics, salons and more, with automatic CRM.",
+        "features": ["Exclusive booking link per business", "Automatic confirmations and reminders", "CRM and client history"]
+      },
+      {
+        "icon": "📦",
+        "title": "Inventory Control",
+        "desc": "Smart inventory management with entries, exits, alerts and reports integrated into your sales flow.",
+        "features": ["Automated stock entries and exits", "Minimum stock alerts", "Turnover, loss and sales reports"]
+      }
+    ]
   },
   "team": {
     "eyebrow": "The team",
-    "title":   "Seven minds,",
+    "title":   "Multiple fronts,",
     "titleHighlight": "one purpose",
     "titleSuffix":    ".",
-    "desc": "A multidisciplinary team from Sergipe, united by the will to build products that make a difference in the digital universe.",
-    "members": [
-      { "initials": "DE", "name": "Denisson", "role": "CEO & Leader",          "desc": "Strategic vision and leadership",   "avatarStyle": "background: linear-gradient(135deg, #7C3AED, #00E5FF)" },
-      { "initials": "WE", "name": "Wendell",  "role": "Tech Lead",             "desc": "Technical architecture and dev",    "avatarStyle": "background: linear-gradient(135deg, #6366F1, #A855F7)" },
-      { "initials": "KE", "name": "Keven",    "role": "Dev & Infra",           "desc": "Architecture and infrastructure",   "avatarStyle": "background: linear-gradient(135deg, #0EA5E9, #00E5FF)" },
-      { "initials": "AL", "name": "Allefe",   "role": "UI/UX Designer",        "desc": "Interfaces and experience",         "avatarStyle": "background: linear-gradient(135deg, #10B981, #00E5FF)" },
-      { "initials": "IG", "name": "Igor",     "role": "UI/UX & QA",            "desc": "Design and software quality",       "avatarStyle": "background: linear-gradient(135deg, #F59E0B, #EC4899)" },
-      { "initials": "MA", "name": "Matheus",  "role": "Sales & Dev Jr",        "desc": "Clients and development",           "avatarStyle": "background: linear-gradient(135deg, #EC4899, #A855F7)" },
-      { "initials": "SA", "name": "Saulo",    "role": "Finance & Marketing",   "desc": "Finance and brand strategy",        "avatarStyle": "background: linear-gradient(135deg, #14B8A6, #7C3AED)" }
+    "desc": "A multidisciplinary team from Sergipe, with specialists on every front to deliver complete digital products.",
+    "stat": "7+ specialists · Sergipe, Brazil",
+    "roles": [
+      { "icon": "💻", "area": "Frontend",  "title": "Frontend Dev",    "desc": "Modern, responsive and high-performance interfaces",        "iconStyle": "background: linear-gradient(135deg, #6366F1, #00E5FF)" },
+      { "icon": "⚙️", "area": "Backend",   "title": "Backend Dev",     "desc": "Robust APIs, business logic and integrations",             "iconStyle": "background: linear-gradient(135deg, #7C3AED, #A855F7)" },
+      { "icon": "📱", "area": "Mobile",    "title": "Mobile Apps",     "desc": "iOS and Android, native and hybrid with UX focus",         "iconStyle": "background: linear-gradient(135deg, #0EA5E9, #00E5FF)" },
+      { "icon": "🎨", "area": "Design",    "title": "UI/UX Design",    "desc": "Experiences that delight, convert and retain users",       "iconStyle": "background: linear-gradient(135deg, #10B981, #00E5FF)" },
+      { "icon": "🏗️", "area": "DevOps",    "title": "Infra & DevOps",  "desc": "Cloud, automated deploy and scalable architecture",        "iconStyle": "background: linear-gradient(135deg, #F59E0B, #EC4899)" },
+      { "icon": "🧪", "area": "QA",        "title": "QA & Testing",    "desc": "Guaranteed quality and regression-free deliveries",        "iconStyle": "background: linear-gradient(135deg, #EC4899, #A855F7)" },
+      { "icon": "📊", "area": "Business",  "title": "Strategy",        "desc": "Product vision, client relations and brand growth",        "iconStyle": "background: linear-gradient(135deg, #14B8A6, #7C3AED)" }
     ]
   },
   "location": {

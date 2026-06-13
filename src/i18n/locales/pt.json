@@ -41,12 +41,32 @@
     "titleSuffix": ".",
     "desc1": "A Kozmo Tech nasceu em Sergipe com um propósito claro: trazer tecnologia de qualidade para empresas locais que merecem ferramentas melhores.",
     "desc2": "Somos um time jovem, técnico e apaixonado por resolver problemas reais. Não entregamos só código — entregamos impacto no negócio do cliente.",
+    "chartDesc": "O gráfico ao lado ilustra a evolução média do faturamento mensal dos nossos clientes entre 2020 e 2024 — partindo de R$8k/mês e chegando a R$45k/mês, mais de 5× de crescimento em 5 anos de parceria.",
+    "cta": "Iniciar um projeto",
     "cards": [
       { "icon": "💻", "name": "Dev sob medida",  "desc": "Sistemas web completos para sua operação" },
       { "icon": "📱", "name": "Apps Mobile",      "desc": "iOS e Android com foco em experiência" },
       { "icon": "⚡", "name": "Automações",       "desc": "Processos inteligentes e integrações" },
       { "icon": "🧭", "name": "Consultoria",      "desc": "Estratégia e arquitetura de tecnologia" }
-    ]
+    ],
+    "mock": {
+      "panelLabel": "Impacto no negócio",
+      "stats": [
+        { "num": "+47%", "color": "neon-green", "label": "Faturamento" },
+        { "num": "-38%", "color": "cyan",       "label": "Ops manuais" },
+        { "num": "3.2x", "color": "neon-amber", "label": "Escala clientes" }
+      ],
+      "chartLabel": "Faturamento mensal · Evolução em 5 anos",
+      "chartBars": [
+        { "month": "Jan", "value": "R$8k",  "pct": 28 },
+        { "month": "Fev", "value": "R$12k", "pct": 41 },
+        { "month": "Mar", "value": "R$16k", "pct": 55 },
+        { "month": "Abr", "value": "R$20k", "pct": 69 },
+        { "month": "Mai", "value": "R$25k", "pct": 86 },
+        { "month": "Jun", "value": "R$29k", "pct": 100 }
+      ],
+      "footer": "Crescimento médio de clientes Kozmo · 2020–2024"
+    }
   },
   "services": {
     "eyebrow": "Serviços",
@@ -54,6 +74,7 @@
     "titleHighlight": "entrega",
     "titleSuffix":    ".",
     "viewAll": "Ver todos →",
+    "cta": "Iniciar um projeto",
     "items": [
       { "num": "01", "icon": "🖥️", "title": "Desenvolvimento de Software",  "desc": "Sistemas web personalizados do zero, com foco em performance, escalabilidade e usabilidade real." },
       { "num": "02", "icon": "📱", "title": "Aplicativos Mobile",            "desc": "Apps nativos e híbridos para iOS e Android. Do design à publicação nas lojas, com experiência que encanta." },
@@ -62,47 +83,76 @@
     ]
   },
   "product": {
-    "tag":   "Produto próprio em desenvolvimento",
-    "title": "Agendamento inteligente com",
-    "titleHighlight": "WhatsApp",
-    "titleSuffix":    "integrado.",
-    "desc":  "Nosso primeiro SaaS próprio: gestão completa de agendamentos para barbearias, clínicas e salões, com confirmação automática via WhatsApp.",
+    "eyebrow": "Produto",
+    "sectionTitle": "O que estamos",
+    "sectionHighlight": "construindo",
+    "sectionSuffix": ".",
+    "startCta": "Iniciar um projeto",
+    "tag":   "Disponível",
+    "title": "Cardápio digital com",
+    "titleHighlight": "QR Code",
+    "titleSuffix":    "e pedidos integrados.",
+    "desc":  "Transformamos a experiência do seu restaurante: cardápio multilíngue acessível pelo celular via QR Code, pedidos online, gestão de mesas e acompanhamento em tempo real — presencial ou delivery.",
     "features": [
-      "Link de agendamento exclusivo por empresa",
-      "Confirmação e lembrete automático via WhatsApp",
-      "Controle financeiro e OS integrados",
-      "CRM automático com reativação de clientes"
+      "Cardápio em múltiplos idiomas via QR Code — ideal para turistas",
+      "Pedidos por mesa, balcão ou delivery com status em tempo real",
+      "Chamada de garçom e controle de mesas integrado",
+      "Controle de estoque e relatórios de clientes e vendas",
+      "Calendário de reservas integrado"
     ],
-    "cta": "Quero acesso antecipado",
+    "cta": "Conhecer o produto",
+    "pipelineLabel": "Próximos lançamentos",
+    "pipelineTag":   "Em desenvolvimento",
     "mock": {
       "statItems": [
-        { "num": "12",    "color": "cyan",        "label": "Hoje" },
-        { "num": "R$540", "color": "neon-green",  "label": "Caixa" },
-        { "num": "2",     "color": "neon-amber",  "label": "Pendentes" }
+        { "num": "8",      "color": "cyan",        "label": "Mesas ativas" },
+        { "num": "R$1.2k", "color": "neon-green",  "label": "Faturamento" },
+        { "num": "3",      "color": "neon-amber",  "label": "Em preparo" }
       ],
-      "scheduleLabel": "Agenda de hoje",
+      "scheduleLabel": "Pedidos ativos",
       "scheduleItems": [
-        { "time": "09:00", "name": "Carlos S.",  "status": "ok",   "label": "Confirmado" },
-        { "time": "10:30", "name": "Marcos R.",  "status": "pend", "label": "Pendente" },
-        { "time": "11:00", "name": "João P.",    "status": "ok",   "label": "Confirmado" },
-        { "time": "14:00", "name": "Ana Lima",   "status": "canc", "label": "Cancelado" }
+        { "time": "Mesa 4",   "name": "Hambúrguer + Suco",  "status": "pend", "label": "Em preparo" },
+        { "time": "Mesa 7",   "name": "Salmão ao molho",    "status": "ok",   "label": "Pronto" },
+        { "time": "Delivery", "name": "Pizza Margherita",   "status": "pend", "label": "Em preparo" },
+        { "time": "Mesa 2",   "name": "Garçom solicitado",  "status": "canc", "label": "Atenção" }
       ]
-    }
+    },
+    "pipeline": [
+      {
+        "icon": "🏢",
+        "title": "Sistema para Condomínios",
+        "desc": "Gestão completa de condomínios: moradores, comunicados, reservas de áreas comuns, controle de visitantes e financeiro integrado.",
+        "features": ["Gestão de moradores e unidades", "Reserva de áreas comuns e comunicados", "Financeiro, boletos e controle de visitantes"]
+      },
+      {
+        "icon": "📅",
+        "title": "Agendamentos Gerais",
+        "desc": "Plataforma de agendamentos para qualquer segmento: barbearias, clínicas, salões e muito mais, com CRM automático.",
+        "features": ["Link de agendamento exclusivo por empresa", "Confirmações e lembretes automáticos", "CRM e histórico de clientes"]
+      },
+      {
+        "icon": "📦",
+        "title": "Controle de Estoque",
+        "desc": "Gestão inteligente de estoque com entradas, saídas, alertas e relatórios integrados ao seu fluxo de vendas.",
+        "features": ["Entradas e saídas automatizadas", "Alertas de estoque mínimo", "Relatórios de giro, perdas e vendas"]
+      }
+    ]
   },
   "team": {
     "eyebrow": "O time",
-    "title":   "Sete mentes,",
+    "title":   "Múltiplas frentes,",
     "titleHighlight": "um propósito",
     "titleSuffix":    ".",
-    "desc": "Um time multidisciplinar de Sergipe, unido pela vontade de construir produtos que fazem diferença no universo digital.",
-    "members": [
-      { "initials": "DE", "name": "Denisson", "role": "CEO & Líder",          "desc": "Visão estratégica e liderança",   "avatarStyle": "background: linear-gradient(135deg, #7C3AED, #00E5FF)" },
-      { "initials": "WE", "name": "Wendell",  "role": "Tech Lead",            "desc": "Arquitetura técnica e dev",       "avatarStyle": "background: linear-gradient(135deg, #6366F1, #A855F7)" },
-      { "initials": "KE", "name": "Keven",    "role": "Dev & Infra",          "desc": "Arquitetura e infraestrutura",    "avatarStyle": "background: linear-gradient(135deg, #0EA5E9, #00E5FF)" },
-      { "initials": "AL", "name": "Allefe",   "role": "UI/UX Designer",       "desc": "Interfaces e experiência",       "avatarStyle": "background: linear-gradient(135deg, #10B981, #00E5FF)" },
-      { "initials": "IG", "name": "Igor",     "role": "UI/UX & QA",           "desc": "Design e qualidade de software", "avatarStyle": "background: linear-gradient(135deg, #F59E0B, #EC4899)" },
-      { "initials": "MA", "name": "Matheus",  "role": "Comercial & Dev Jr",   "desc": "Clientes e desenvolvimento",     "avatarStyle": "background: linear-gradient(135deg, #EC4899, #A855F7)" },
-      { "initials": "SA", "name": "Saulo",    "role": "Controladoria & Mkt",  "desc": "Finanças e estratégia de marca", "avatarStyle": "background: linear-gradient(135deg, #14B8A6, #7C3AED)" }
+    "desc": "Um time multidisciplinar de Sergipe, com especialistas em cada frente para entregar produtos digitais completos.",
+    "stat": "7+ especialistas · Sergipe, Brasil",
+    "roles": [
+      { "icon": "💻", "area": "Frontend",  "title": "Dev Frontend",    "desc": "Interfaces modernas, responsivas e de alta performance",    "iconStyle": "background: linear-gradient(135deg, #6366F1, #00E5FF)" },
+      { "icon": "⚙️", "area": "Backend",   "title": "Dev Backend",     "desc": "APIs robustas, lógica de negócio e integrações",            "iconStyle": "background: linear-gradient(135deg, #7C3AED, #A855F7)" },
+      { "icon": "📱", "area": "Mobile",    "title": "Mobile Apps",     "desc": "iOS e Android, nativos e híbridos com foco em UX",          "iconStyle": "background: linear-gradient(135deg, #0EA5E9, #00E5FF)" },
+      { "icon": "🎨", "area": "Design",    "title": "UI/UX Design",    "desc": "Experiências que encantam, convertem e fidelizam",          "iconStyle": "background: linear-gradient(135deg, #10B981, #00E5FF)" },
+      { "icon": "🏗️", "area": "DevOps",    "title": "Infra & DevOps",  "desc": "Cloud, deploy automatizado e arquitetura escalável",        "iconStyle": "background: linear-gradient(135deg, #F59E0B, #EC4899)" },
+      { "icon": "🧪", "area": "QA",        "title": "QA & Testes",     "desc": "Qualidade garantida e entregas sem regressões",             "iconStyle": "background: linear-gradient(135deg, #EC4899, #A855F7)" },
+      { "icon": "📊", "area": "Negócio",   "title": "Estratégia",      "desc": "Visão de produto, clientes e crescimento de marca",         "iconStyle": "background: linear-gradient(135deg, #14B8A6, #7C3AED)" }
     ]
   },
   "location": {
