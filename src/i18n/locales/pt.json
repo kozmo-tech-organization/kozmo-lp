@@ -85,7 +85,7 @@
       { "num": "04", "icon": "✅", "title": "Aprovação",    "role": "Análise de Sistemas",  "detail": "Apresentamos um documento claro com tudo que será construído. Sua aprovação é o sinal verde — nada avança sem o seu ok." },
       { "num": "05", "icon": "🎨", "title": "Protótipo",    "role": "Designer UX/UI",       "detail": "Criamos protótipos visuais do produto — telas reais que você pode navegar. Ajuste à vontade antes de uma linha de código ser escrita." },
       { "num": "06", "icon": "🏗️", "title": "Estrutura",   "role": "Arquitetura",          "detail": "Nossa equipe técnica define como o produto será construído por dentro para ser rápido, seguro e pronto para crescer com o seu negócio." },
-      { "num": "07", "icon": "💻", "title": "Dev",          "role": "Desenvolvedores",      "detail": "O time de desenvolvimento coloca a mão na massa. Você acompanha com entregas semanais e pode dar feedback em tempo real." },
+      { "num": "07", "icon": "💻", "title": "Desenvolvimento",          "role": "Desenvolvedores",      "detail": "O time de desenvolvimento coloca a mão na massa. Você acompanha com entregas semanais e pode dar feedback em tempo real." },
       { "num": "08", "icon": "🧪", "title": "Testes",       "role": "QA",                   "detail": "Antes de entregar, testamos tudo exaustivamente. Nenhum bug crítico chega até você ou seus clientes. Qualidade garantida." },
       { "num": "09", "icon": "🚀", "title": "Lançamento",   "role": "Produção",             "detail": "Fazemos o lançamento, treinamos sua equipe e continuamos ao seu lado com suporte e evolução contínua. O começo de uma longa parceria." }
     ]
